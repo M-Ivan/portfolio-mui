@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
   root: { fontFamily: "Work Sans" },
   appbar: {
     background: "none",
+    margin: 0,
   },
   button: {
     color: "#fff",

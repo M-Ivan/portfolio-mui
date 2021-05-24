@@ -4,11 +4,12 @@ import { Button, Grid, Typography } from "@material-ui/core";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
 const useStyles = makeStyles((theme) => ({
-  title: {
+  root: {
     fontSize: "1.5rem",
     color: "#fff",
     padding: "3rem",
     backgroundColor: "#00000090",
+    minHeight: "100vh",
   },
   headerButton: {
     border: "2px solid #ff9100",
@@ -30,7 +31,7 @@ export default function Header() {
       container
       justify="center"
       alignItems="center"
-      className={classes.title}
+      className={classes.root}
     >
       {" "}
       <Typography variant="h3" component="h1">

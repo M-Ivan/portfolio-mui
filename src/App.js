@@ -1,8 +1,14 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { createMuiTheme, CssBaseline, ThemeProvider } from "@material-ui/core";
+import {
+  createMuiTheme,
+  CssBaseline,
+  Grid,
+  ThemeProvider,
+} from "@material-ui/core";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
+import AboutMe from "./components/AboutMe";
 
 const theme = createMuiTheme({
   typography: {
@@ -16,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: `url(${process.env.PUBLIC_URL + "/assets/bg18.jpg"})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
+    backgroundAttachment: "fixed",
     display: "flex",
   },
 }));
@@ -26,8 +33,12 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className={classes.root}>
-        <NavBar />
-        <Header />
+        <Grid container direction="column">
+          <NavBar />
+          <Header />
+
+          <AboutMe />
+        </Grid>
         <CssBaseline />
       </div>
     </ThemeProvider>

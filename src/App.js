@@ -10,6 +10,7 @@ import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import AboutMe from "./components/AboutMe";
 import Portafolio from "./components/Portafolio";
+import Contact from "./components/Contact";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,6 +34,7 @@ export default function App() {
         <Header />
         <AboutMe />
         <Portafolio />
+        <Contact />
       </Grid>
       <CssBaseline />
     </div>

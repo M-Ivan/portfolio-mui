@@ -1,4 +1,4 @@
-import { Avatar, Box, Grid } from "@material-ui/core";
+import { Avatar, Box, Grid, Hidden } from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import BuildIcon from "@material-ui/icons/Build";
@@ -232,7 +232,8 @@ export default function AboutMe() {
                 </Grid>
                 <Grid container alignItems="center">
                   <Grid item xs={2} className={classes.progressBox}>
-                    JavaScript
+                    <Hidden smDown>JavaScript</Hidden>
+                    <Hidden mdUp>JS</Hidden>
                   </Grid>
                   <Grid item xs={10}>
                     <ProgressBar progress={80} />
@@ -256,7 +257,8 @@ export default function AboutMe() {
                 </Grid>{" "}
                 <Grid container alignItems="center">
                   <Grid item xs={2} className={classes.progressBox}>
-                    Diseño UI
+                    <Hidden smDown>Diseño UI</Hidden>
+                    <Hidden mdUp>UI</Hidden>
                   </Grid>
                   <Grid item xs={10}>
                     <ProgressBar progress={70} />
@@ -264,7 +266,8 @@ export default function AboutMe() {
                 </Grid>{" "}
                 <Grid container alignItems="center">
                   <Grid item xs={2} className={classes.progressBox}>
-                    PhotoShop{" "}
+                    <Hidden smDown>PhotoShop</Hidden>
+                    <Hidden mdUp>Ps</Hidden>
                   </Grid>
                   <Grid item xs={10}>
                     <ProgressBar progress={60} />
@@ -272,7 +275,8 @@ export default function AboutMe() {
                 </Grid>{" "}
                 <Grid container alignItems="center">
                   <Grid item xs={2} className={classes.progressBox}>
-                    Deployment{" "}
+                    <Hidden smDown>Deployment</Hidden>
+                    <Hidden mdUp>Deploy</Hidden>
                   </Grid>
                   <Grid item xs={10}>
                     <ProgressBar progress={40} />
@@ -280,7 +284,7 @@ export default function AboutMe() {
                 </Grid>{" "}
                 <Grid container alignItems="center">
                   <Grid item xs={2} className={classes.progressBox}>
-                    DevOps{" "}
+                    DevOps
                   </Grid>
                   <Grid item xs={10}>
                     <ProgressBar progress={30} />

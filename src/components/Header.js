@@ -1,7 +1,14 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { Button, Grid, Typography } from "@material-ui/core";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+
+const HeaderTypography = withStyles((theme) => ({
+  root: {
+    height: 25,
+    fontFamily: "Big Shoulders Display",
+  },
+}))(Typography);
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,7 +41,7 @@ export default function Header() {
       className={classes.root}
     >
       {" "}
-      <Typography variant="h3" component="h1">
+      <HeaderTypography variant="h3" component="h1">
         Hola, soy <span className={classes.colorText}>Iván Miragaya</span>.{" "}
         <br />
         Soy Full-Stack developer.
@@ -50,7 +57,7 @@ export default function Header() {
             <ArrowForwardIcon />
           </Button>
         </Grid>{" "}
-      </Typography>
+      </HeaderTypography>
     </Grid>
   );
 }

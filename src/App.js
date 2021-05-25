@@ -9,12 +9,7 @@ import {
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import AboutMe from "./components/AboutMe";
-
-const theme = createMuiTheme({
-  typography: {
-    fontFamily: ["Big Shoulders Display", "cursive"].join(","),
-  },
-});
+import Portafolio from "./components/Portafolio";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
     backgroundAttachment: "fixed",
     display: "flex",
+    fontFamily: "Raleway",
   },
 }));
 
@@ -31,16 +27,14 @@ export default function App() {
   const classes = useStyles();
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className={classes.root}>
-        <Grid container direction="column">
-          <NavBar />
-          <Header />
-
-          <AboutMe />
-        </Grid>
-        <CssBaseline />
-      </div>
-    </ThemeProvider>
+    <div className={classes.root}>
+      <Grid container direction="column">
+        <NavBar />
+        <Header />
+        <AboutMe />
+        <Portafolio />
+      </Grid>
+      <CssBaseline />
+    </div>
   );
 }

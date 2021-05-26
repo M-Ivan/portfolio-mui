@@ -11,6 +11,7 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import EmailIcon from "@material-ui/icons/Email";
 import CallIcon from "@material-ui/icons/Call";
+import { LaunchOutlined } from "@material-ui/icons";
 const CustomTypography = withStyles((theme) => ({
   root: {
     height: 25,
@@ -63,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "0%",
     color: "#fff",
     padding: "1rem",
-    marginTop: "3rem",
+    marginTop: "1rem",
     "&:hover": {
       backgroundColor: "#d31ec0",
       color: "#fff",
@@ -171,29 +172,21 @@ export default function Contact() {
         </Grid>
 
         <Grid container className={classes.contactArea}>
-          <Grid item xs={3}>
-            <Grid container direction="column" alignItems="center">
-              <CustomTypography variant="h5" component="h3">
-                {" "}
-                Estoy disponible para consultas / ofertas laborales
-              </CustomTypography>
-            </Grid>
+          <Grid item xs={12} lg={3}>
+            <EmailIcon className={classes.typeIcon} />{" "}
+            <CustomTypography variant="subtitle1" component="h3">
+              <a href="mailto:MiragayaIvan@hotmail.com">
+                <strong>MiragayaIvan@hotmail.com</strong>
+              </a>
+            </CustomTypography>
           </Grid>
-          <Grid item xs={3}>
-            <Grid container direction="column" alignItems="center">
-              <EmailIcon className={classes.typeIcon} />{" "}
-              <CustomTypography variant="subtitle1" component="h3">
-                <a href="mailto:MiragayaIvan@hotmail.com">
-                  <strong>MiragayaIvan@hotmail.com </strong>
-                </a>
-              </CustomTypography>
-              <CallIcon className={classes.typeIcon} />
-              <CustomTypography variant="subtitle1" component="h3">
-                <a href="tel:+541127677832">
-                  <strong>11-2767-7832</strong>{" "}
-                </a>{" "}
-              </CustomTypography>
-            </Grid>
+          <Grid item xs={12} lg={3}>
+            <CallIcon className={classes.typeIcon} />
+            <Typography variant="subtitle1" component="h3">
+              <a href="tel:+541127677832">
+                <strong>11-2767-7832</strong>{" "}
+              </a>{" "}
+            </Typography>
           </Grid>
           <Grid item xs={12} className={classes.detail1}>
             {" "}
@@ -205,7 +198,7 @@ export default function Contact() {
                   className={classes.detailText1}
                 >
                   {" "}
-                  y hagamos algo juntos{" "}
+                  y hagamos algo increible
                 </CustomTypography>
               </Grid>
             </Grid>
@@ -215,7 +208,8 @@ export default function Contact() {
               href="mailto:MiragayaIvan@hotmail.com"
               classes={{ root: classes.button }}
             >
-              Creemos algo increible
+              Creemos algo increible{" "}
+              <LaunchOutlined style={{ marginLeft: "1rem" }} />
             </Button>
           </Grid>
         </Grid>

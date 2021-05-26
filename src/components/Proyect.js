@@ -20,16 +20,16 @@ const CustomTypography = withStyles((theme) => ({
 
 const useStyles = makeStyles((theme) => ({
   cardRoot: {
+    zIndex: 10,
     width: "100%",
     height: "100%",
     color: "#fff",
-    backgroundColor: "#3f3f3f",
+    backgroundColor: "transparent",
     borderRadius: "0",
   },
   nameBox: {
     textAlign: "center",
     marginBottom: "2rem",
-    marginTop: "2rem",
   },
   nombre: {
     fontSize: "2rem",
@@ -37,10 +37,12 @@ const useStyles = makeStyles((theme) => ({
   },
   tecnologias: {
     fontSize: "1.2rem",
-    color: "#ff9100",
+    color: "#ff0080",
   },
   detailsBox: {
-    height: 300,
+    height: 345,
+    display: "flex",
+    alignItems: "center",
   },
   detailsArea: {
     marginBottom: "6rem",
@@ -57,13 +59,12 @@ const useStyles = makeStyles((theme) => ({
   button: {
     width: "60%",
     marginTop: "3rem",
-    border: "2px solid #ff9100",
+    border: "2px solid #ff0080",
     borderRadius: "0%",
     color: "#fff",
     padding: "0.4rem 2rem 0.4rem 2rem ",
     "&:hover": {
-      backgroundColor: "#ff9100",
-      color: "#3f3f3f",
+      backgroundColor: "#ff0080",
     },
   },
   modal: {

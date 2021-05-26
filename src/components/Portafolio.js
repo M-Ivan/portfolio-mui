@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "uppercase",
     display: "inline-block",
     textDecoration: "none",
-    backgroundImage: "linear-gradient(to right, #ff9100, #ff9100)",
+    backgroundImage: "radial-gradient(circle, #ff9100, #d31ec0)",
     backgroundPosition: "bottom center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "35% 3px",

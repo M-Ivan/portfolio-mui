@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "100vh",
   },
   contact: {
-    width: "80%",
     backgroundColor: "#1a1a1a",
     height: "80vh",
   },
@@ -70,15 +69,13 @@ const useStyles = makeStyles((theme) => ({
       color: "#fff",
     },
   },
-  footerBox: {
-    width: "80%",
-    backgroundColor: "#19171d",
-  },
+
   footer: {
     height: "20vh",
     display: "flex",
     alignItems: "flex-end",
     justifyContent: "flex-end",
+    backgroundColor: "#19171d",
   },
   mediaButton: {
     width: "60px",
@@ -102,6 +99,14 @@ const useStyles = makeStyles((theme) => ({
   },
   watermarkColor: {
     color: "#d300c1",
+  },
+  contactLink: {
+    textDecoration: "none",
+    color: "#fff",
+    fontSize: "1.5rem",
+    "&:hover": {
+      color: "#ff9100",
+    },
   },
 
   detail1: {
@@ -175,7 +180,10 @@ export default function Contact() {
           <Grid item xs={12} lg={3}>
             <EmailIcon className={classes.typeIcon} />{" "}
             <CustomTypography variant="subtitle1" component="h3">
-              <a href="mailto:MiragayaIvan@hotmail.com">
+              <a
+                className={classes.contactLink}
+                href="mailto:MiragayaIvan@hotmail.com"
+              >
                 <strong>MiragayaIvan@hotmail.com</strong>
               </a>
             </CustomTypography>
@@ -183,7 +191,7 @@ export default function Contact() {
           <Grid item xs={12} lg={3}>
             <CallIcon className={classes.typeIcon} />
             <Typography variant="subtitle1" component="h3">
-              <a href="tel:+541127677832">
+              <a className={classes.contactLink} href="tel:+541127677832">
                 <strong>11-2767-7832</strong>{" "}
               </a>{" "}
             </Typography>
@@ -214,28 +222,26 @@ export default function Contact() {
           </Grid>
         </Grid>
       </Grid>
-      <Grid container alignItems="flex-end" className={classes.footerBox}>
-        <Grid item xs={12} className={classes.footer}>
-          <Grid container justify="center" alignItems="center">
-            <IconButton
-              href="https://www.linkedin.com/in/miragaya-ivan/"
-              className={classes.mediaButton}
-            >
-              {" "}
-              <LinkedInIcon className={classes.icon} />
-            </IconButton>{" "}
-            <IconButton
-              href="https://github.com/m-ivan"
-              className={classes.mediaButton}
-            >
-              <GitHubIcon className={classes.icon} />
-            </IconButton>
-            <Grid container justify="center">
-              <CustomTypography component="h4" className={classes.watermark}>
-                Iván Miragaya
-                <span className={classes.watermarkColor}>©2021</span>
-              </CustomTypography>
-            </Grid>
+      <Grid item xs={12} className={classes.footer}>
+        <Grid container justify="center" alignItems="center">
+          <IconButton
+            href="https://www.linkedin.com/in/miragaya-ivan/"
+            className={classes.mediaButton}
+          >
+            {" "}
+            <LinkedInIcon className={classes.icon} />
+          </IconButton>{" "}
+          <IconButton
+            href="https://github.com/m-ivan"
+            className={classes.mediaButton}
+          >
+            <GitHubIcon className={classes.icon} />
+          </IconButton>
+          <Grid container justify="center">
+            <CustomTypography component="h4" className={classes.watermark}>
+              Iván Miragaya
+              <span className={classes.watermarkColor}>©2021</span>
+            </CustomTypography>
           </Grid>
         </Grid>
       </Grid>

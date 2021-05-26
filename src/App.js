@@ -15,7 +15,7 @@ import Contact from "./components/Contact";
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: "100vh",
-    backgroundImage: `url(${process.env.PUBLIC_URL + "/assets/bg18.jpg"})`,
+    backgroundImage: `url(${process.env.PUBLIC_URL + "/assets/bg53.gif"})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundAttachment: "fixed",
@@ -29,7 +29,7 @@ export default function App() {
 
   return (
     <div className={classes.root}>
-      <Grid container direction="column">
+      <Grid container>
         <NavBar />
         <Header />
         <AboutMe />

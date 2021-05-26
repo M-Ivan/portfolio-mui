@@ -7,6 +7,7 @@ import CodeIcon from "@material-ui/icons/Code";
 import React from "react";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import DoneAllIcon from "@material-ui/icons/DoneAll";
+import NavBar from "./NavBar";
 
 const SkillsLinearProgress = withStyles((theme) => ({
   root: {
@@ -30,10 +31,12 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "100vh",
   },
   aboutme: {
-    padding: "1rem",
-    width: "80%",
+    padding: "1rem 20% 1rem 20%",
     backgroundColor: "#f3f3f3",
     justifyContent: "center",
+    [theme.breakpoints.down("md")]: {
+      padding: "1rem 10% 1rem 10%",
+    },
   },
   descriptionText: {
     fontSize: "1.2rem",
@@ -124,6 +127,7 @@ export default function AboutMe() {
           <Grid container justify="center" alignItems="center">
             <h1 className={classes.title}>Sobre mí</h1>
           </Grid>
+
           <Grid item xs={12}>
             <h2 style={{ textAlign: "center" }}>
               Mi{" "}
@@ -134,6 +138,7 @@ export default function AboutMe() {
               para el éxito
             </h2>
           </Grid>
+
           <Grid item xs={12}>
             <Grid container justify="center" className={classes.skillArea}>
               <Grid item xs={6} lg={3}>

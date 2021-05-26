@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#ff0080",
   },
   detailsBox: {
-    height: 345,
+    height: 300,
     display: "flex",
     alignItems: "center",
   },
@@ -124,8 +124,8 @@ export default function Proyect(props) {
               // Poner una imagen que respete las dimensiones siempre
               component="img"
               alt={nombre}
-              height="345"
-              width="390"
+              height="300"
+              width="400"
               image={img}
               title={nombre}
             />

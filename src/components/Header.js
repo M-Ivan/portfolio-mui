@@ -3,6 +3,7 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { Button, Grid, Typography } from "@material-ui/core";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import NavBar from "./NavBar";
+import Particles from "react-particles-js";
 
 const HeaderTypography = withStyles((theme) => ({
   root: {
@@ -16,13 +17,15 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1.5rem",
     color: "#fff",
     padding: "3rem",
-    backgroundColor: "#00000090",
+    backgroundColor: "#00000020",
     minHeight: "106vh",
   },
   welcomeText: {
     alignItems: "center",
     justifyContent: "center",
     padding: "0 0rem 12rem 0rem",
+    textAlign: "center",
+    fontSize: "2rem",
   },
   headerButton: {
     border: "2px solid #ff9100",
@@ -37,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
   colorText: {
     color: "#ff9100",
+    fontSize: "4rem",
   },
 }));
 
@@ -47,9 +51,8 @@ export default function Header() {
     <Grid container className={classes.root}>
       <Grid container className={classes.welcomeText}>
         <HeaderTypography variant="h3" component="h1">
-          Hola, soy <span className={classes.colorText}>Iván Miragaya</span>.{" "}
-          <br />
-          Soy Full-Stack developer.
+          <span className={classes.colorText}>Iván Miragaya</span>. <br />
+          Full-Stack developer.
           <br />
           <Grid container justify="center">
             <Button

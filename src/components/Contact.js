@@ -206,7 +206,7 @@ export default function Contact() {
                   className={classes.detailText1}
                 >
                   {" "}
-                  y hagamos algo increible
+                  y hagamos algo juntos
                 </CustomTypography>
               </Grid>
             </Grid>

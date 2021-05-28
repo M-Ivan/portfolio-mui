@@ -12,6 +12,7 @@ import AboutMe from "./components/AboutMe";
 import Portafolio from "./components/Portafolio";
 import Contact from "./components/Contact";
 import Particles from "react-particles-js";
+import useWindowPosition from "./hooks/useWindowPosition";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,11 +24,13 @@ const useStyles = makeStyles((theme) => ({
     backgroundAttachment: "relative",
     display: "flex",
     fontFamily: "Raleway",
+    overflowX: "hidden",
   },
 }));
 
 export default function App() {
   const classes = useStyles();
+  const checked = useWindowPosition("root");
 
   return (
     <div className={classes.root}>
@@ -104,14 +107,12 @@ export default function App() {
           zIndex: 0,
         }}
       />{" "}
-      <Grid container>
+      <Grid container id="root">
         <NavBar />
-
-        <Header />
-
-        <AboutMe />
-        <Portafolio />
-        <Contact />
+        <Header checked={checked.headerAnimation} />
+        <AboutMe checked={checked.aboutAnimation} />
+        <Portafolio checked={checked.portfolioAnimation} />{" "}
+        <Contact checked={checked.contactAnimation} />{" "}
       </Grid>
       <CssBaseline />
     </div>

@@ -1,9 +1,15 @@
 import React from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { Button, Grid, Typography } from "@material-ui/core";
+import {
+  Box,
+  Button,
+  Collapse,
+  Fade,
+  Grid,
+  Slide,
+  Typography,
+} from "@material-ui/core";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import NavBar from "./NavBar";
-import Particles from "react-particles-js";
 
 const HeaderTypography = withStyles((theme) => ({
   root: {
@@ -21,18 +27,15 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "106vh",
   },
   welcomeText: {
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "0 0rem 12rem 0rem",
+    padding: "0 0 10rem 0",
     textAlign: "center",
-    fontSize: "2rem",
   },
   headerButton: {
     border: "2px solid #ff9100",
     borderRadius: "0%",
     transition: "0.6s",
     color: "#fff",
-    marginTop: "1rem",
+    marginTop: "8rem",
     "&:hover": {
       backgroundColor: "#ff9100",
       color: "#fff",
@@ -44,17 +47,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Header() {
+export default function Header(props) {
+  const { checked } = props;
   const classes = useStyles();
 
   return (
-    <Grid container className={classes.root}>
-      <Grid container className={classes.welcomeText}>
-        <HeaderTypography variant="h3" component="h1">
-          <span className={classes.colorText}>Iván Miragaya</span>. <br />
-          Full-Stack developer.
-          <br />
-          <Grid container justify="center">
+    <Grid container className={classes.root} id="header">
+      <Grid
+        container
+        className={classes.welcomeText}
+        alignItems="center"
+        justify="center"
+        direction="column"
+      >
+        <Slide direction="left" in={checked} {...{ timeout: 1000 }}>
+          <HeaderTypography variant="h3" component="h1">
+            <span className={classes.colorText}>Iván Miragaya</span>.
+            <br />
+            Full-Stack developer.
+          </HeaderTypography>
+        </Slide>
+        <Slide direction="right" in={checked} {...{ timeout: 1000 }}>
+          <Box>
             <Button
               size="large"
               href="#portafolio"
@@ -63,9 +77,9 @@ export default function Header() {
             >
               Mis trabajos
               <ArrowForwardIcon />
-            </Button>
-          </Grid>{" "}
-        </HeaderTypography>
+            </Button>{" "}
+          </Box>
+        </Slide>
       </Grid>
     </Grid>
   );

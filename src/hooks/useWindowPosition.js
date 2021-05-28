@@ -20,7 +20,7 @@ export default function useWindowPosition(id) {
       if (window.pageYOffset > 1350) {
         setPortfolioAnimation(true);
       }
-      if (window.pageYOffset > 2300) {
+      if (window.pageYOffset > 2500) {
         setContactAnimation(true);
         setHeaderAnimation(false);
       }

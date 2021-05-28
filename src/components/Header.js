@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import {
   Box,
@@ -14,45 +14,60 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 const HeaderTypography = withStyles((theme) => ({
   root: {
     height: 25,
-    fontFamily: "Big Shoulders Display",
+    fontFamily: "Raleway",
   },
 }))(Typography);
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    fontSize: "1.5rem",
     color: "#fff",
     padding: "3rem",
     backgroundColor: "#00000020",
     minHeight: "106vh",
   },
   welcomeText: {
-    padding: "0 0 10rem 0",
+    padding: "0 0 5rem 0",
     textAlign: "center",
+    fontSize: "1rem",
   },
   headerButton: {
-    border: "2px solid #ff9100",
+    border: "2px solid #fff",
     borderRadius: "0%",
-    transition: "0.6s",
+    transition: "0.5s",
     color: "#fff",
-    marginTop: "8rem",
+    marginTop: "7rem",
     "&:hover": {
       backgroundColor: "#ff9100",
       color: "#fff",
+      border: "2px solid #ff9100",
     },
+  },
+  iconAnim: {
+    transition: "0.5s",
+    width: "30px",
+    height: "30px",
+    marginLeft: "0.5rem",
+    transform: "rotate(90deg)",
+  },
+  icon: {
+    width: "30px",
+    height: "30px",
+    marginLeft: "0.5rem",
   },
   colorText: {
     color: "#ff9100",
-    fontSize: "4rem",
+    fontSize: "3rem",
+    fontWeight: 600,
   },
 }));
 
 export default function Header(props) {
-  const { checked } = props;
+  const { checked, headerSection, gotoAbout } = props;
   const classes = useStyles();
+  const [rotate, setRotate] = useState(false);
 
   return (
-    <Grid container className={classes.root} id="header">
+    <Grid container className={classes.root} ref={headerSection}>
       <Grid
         container
         className={classes.welcomeText}
@@ -61,7 +76,7 @@ export default function Header(props) {
         direction="column"
       >
         <Slide direction="left" in={checked} {...{ timeout: 1000 }}>
-          <HeaderTypography variant="h3" component="h1">
+          <HeaderTypography variant="p" component="h1">
             <span className={classes.colorText}>Iván Miragaya</span>.
             <br />
             Full-Stack developer.
@@ -70,13 +85,18 @@ export default function Header(props) {
         <Slide direction="right" in={checked} {...{ timeout: 1000 }}>
           <Box>
             <Button
+              onMouseEnter={() => setRotate(true)}
+              onMouseLeave={() => setRotate(false)}
               size="large"
-              href="#portafolio"
+              href="#about"
               variant="outlined"
+              onClick={gotoAbout}
               classes={{ root: classes.headerButton }}
             >
               Mis trabajos
-              <ArrowForwardIcon />
+              <ArrowForwardIcon
+                className={rotate ? classes.iconAnim : classes.icon}
+              />
             </Button>{" "}
           </Box>
         </Slide>

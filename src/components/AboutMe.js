@@ -127,13 +127,18 @@ function ProgressBar(props) {
 }
 
 export default function AboutMe(props) {
-  const { checked } = props;
+  const { checked, aboutSection } = props;
   const classes = useStyles();
 
   return (
-    <Grid container className={classes.root} justify="center">
+    <Grid
+      container
+      className={classes.root}
+      justify="center"
+      ref={aboutSection}
+    >
       <Grid container className={classes.aboutme}>
-        <Grid item xs={12} id="about">
+        <Grid item xs={12}>
           <Slide
             direction="left"
             in={checked}
@@ -143,16 +148,22 @@ export default function AboutMe(props) {
               <h1 className={classes.title}>Sobre mí</h1>
             </Grid>
           </Slide>
-          <Grid item xs={12}>
-            <h2 style={{ textAlign: "center" }}>
-              Mi{" "}
-              <span className={classes.subtitleColor}>
-                fórmula
-                <DoneAllIcon />
-              </span>{" "}
-              para el éxito
-            </h2>
-          </Grid>
+          <Slide
+            direction="right"
+            in={checked}
+            {...(checked ? { timeout: 1000 } : {})}
+          >
+            <Grid item xs={12}>
+              <h2 style={{ textAlign: "center" }}>
+                Mi{" "}
+                <span className={classes.subtitleColor}>
+                  fórmula
+                  <DoneAllIcon />
+                </span>{" "}
+                para el éxito
+              </h2>
+            </Grid>
+          </Slide>
           <Grid item xs={12}>
             <Grid container justify="center" className={classes.skillArea}>
               <Grid item xs={6} lg={3}>

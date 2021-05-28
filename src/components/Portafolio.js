@@ -55,11 +55,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Portafolio(props) {
-  const { checked } = props;
+  const { checked, folioSection } = props;
   const classes = useStyles();
 
   return (
-    <Grid container className={classes.root} justify="center">
+    <Grid
+      container
+      className={classes.root}
+      justify="center"
+      ref={folioSection}
+    >
       <Grid container className={classes.portafolio}>
         <Grid item xs={12}>
           <Slide

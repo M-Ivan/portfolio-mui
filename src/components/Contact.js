@@ -8,8 +8,7 @@ import {
   Grow,
   Slide,
   Collapse,
-  Zoom,
-  Fade,
+  Box,
 } from "@material-ui/core";
 import React from "react";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
@@ -28,15 +27,16 @@ const CustomTypography = withStyles((theme) => ({
 const useStyles = makeStyles((theme) => ({
   root: {
     background: "none",
-    backgroundColor: "#00000090",
     color: "#fff",
     minHeight: "100vh",
   },
   contact: {
+    height: "85%",
     backgroundColor: "#1a1a1a",
-    height: "80vh",
+    display: "flex",
+    textAlign: "center",
+    justifyContent: "center",
   },
-
   title: {
     fontWeight: "600",
     zIndex: 10,
@@ -54,57 +54,19 @@ const useStyles = makeStyles((theme) => ({
       backgroundSize: "80% 3px",
     },
   },
-  contactArea: {
-    display: "flex",
-    padding: "5rem 0 5rem 0",
-
-    height: "80%",
-    textAlign: "center",
-    justifyContent: "center",
-  },
 
   button: {
-    width: "100%",
+    width: "90%",
     border: "2px solid #d31ec0",
     borderRadius: "0%",
     color: "#fff",
     padding: "1rem",
-    marginTop: "1rem",
+    fontSize: "1rem",
+    marginTop: "3rem",
     "&:hover": {
       backgroundColor: "#d31ec0",
       color: "#fff",
     },
-  },
-
-  footer: {
-    height: "20vh",
-    display: "flex",
-    alignItems: "flex-end",
-    justifyContent: "flex-end",
-    backgroundColor: "#19171d",
-  },
-  mediaButton: {
-    width: "60px",
-    height: "60px",
-    color: "#fff",
-    "&:hover": {
-      color: "#d300c1",
-    },
-  },
-  icon: {
-    width: "40px",
-    height: "40px",
-  },
-  watermark: {
-    display: "flex",
-    justifyContent: "center",
-    color: "#acacac",
-    marginBottom: "4rem",
-    fontSize: "1.2rem",
-    textTransform: "uppercase",
-  },
-  watermarkColor: {
-    color: "#d300c1",
   },
   contactLink: {
     textDecoration: "none",
@@ -115,7 +77,17 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
+  // Diagonal Box (big text)
   detail1: {
+    backgroundColor: "#d31ec0", //"#3f3f3f",
+    height: "80px",
+    transform: "skewY(-5deg)",
+    textAlign: "center",
+    marginBottom: "3rem",
+  },
+
+  // Diagonal Box (small text)
+  detail2: {
     display: "flex",
     alignItems: "center",
     backgroundColor: "#d31ec0", //"#3f3f3f",
@@ -123,16 +95,10 @@ const useStyles = makeStyles((theme) => ({
     height: "40px",
     textAlign: "center",
     width: "100%",
+    marginTop: "3rem",
   },
   detailText: {
     textShadow: "0 0 8px #000",
-  },
-
-  detail2: {
-    backgroundColor: "#d31ec0", //"#3f3f3f",
-    height: "80px",
-    transform: "skewY(-5deg)",
-    textAlign: "center",
   },
   detail3: {
     backgroundColor: "#3f3f3f", //"#3f3f3f",
@@ -157,14 +123,43 @@ const useStyles = makeStyles((theme) => ({
   typeIcon: {
     color: "#808080",
   },
+  footer: {
+    height: "15%",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#19171d",
+  },
+  mediaButton: {
+    width: "60px",
+    height: "60px",
+    color: "#fff",
+    "&:hover": {
+      color: "#d300c1",
+    },
+  },
+  icon: {
+    width: "40px",
+    height: "40px",
+  },
+  watermark: {
+    display: "flex",
+    justifyContent: "center",
+    textAlign: "center",
+    color: "#acacac",
+    fontSize: "1.2rem",
+    textTransform: "uppercase",
+  },
+  watermarkColor: {
+    color: "#d300c1",
+  },
 }));
 export default function Contact(props) {
-  const { checked } = props;
+  const { checked, contactSection } = props;
   const classes = useStyles();
 
   return (
-    <Grid container className={classes.root} justify="center">
-      <Grid container className={classes.contact} id="contact">
+    <Grid container className={classes.root} ref={contactSection}>
+      <Grid container className={classes.contact}>
         <Grid item xs={6} className={classes.detail3}></Grid>
         <Grid item xs={6} className={classes.detail4}></Grid>
         <Grow in={checked} {...(checked ? { timeout: 1000 } : {})}>
@@ -174,8 +169,7 @@ export default function Contact(props) {
             </Grid>{" "}
           </Grid>
         </Grow>
-
-        <Grid item xs={12} className={classes.detail2}>
+        <Grid item xs={12} className={classes.detail1}>
           {" "}
           <Grid container>
             <Slide
@@ -192,89 +186,84 @@ export default function Contact(props) {
             </Slide>
           </Grid>
         </Grid>
-
-        <Grid container className={classes.contactArea}>
-          <Grid item xs={12} lg={3}>
-            <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
-              <EmailIcon className={classes.typeIcon} />{" "}
-              <CustomTypography variant="subtitle1" component="h3">
-                <a
-                  className={classes.contactLink}
-                  href="mailto:MiragayaIvan@hotmail.com"
-                >
-                  <strong>MiragayaIvan@hotmail.com</strong>
-                </a>
-              </CustomTypography>
-            </Collapse>
-          </Grid>
-          <Grid item xs={12} lg={3}>
-            <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
-              <CallIcon className={classes.typeIcon} />
-              <Typography variant="subtitle1" component="h3">
-                <a className={classes.contactLink} href="tel:+541127677832">
-                  <strong>11-2767-7832</strong>{" "}
-                </a>{" "}
-              </Typography>{" "}
-            </Collapse>
-          </Grid>
-          <Grid item xs={12} className={classes.detail1}>
-            {" "}
-            <Grid container>
-              <Slide
-                direction="right"
-                in={checked}
-                {...(checked ? { timeout: 800 } : {})}
-              >
-                <Grid item xs={12}>
-                  <CustomTypography
-                    variant="body1"
-                    component="h2"
-                    className={classes.detailText1}
-                  >
-                    {" "}
-                    y hagamos algo juntos
-                  </CustomTypography>
-                </Grid>
-              </Slide>
-            </Grid>
-          </Grid>{" "}
-          <Grow in={checked} {...(checked ? { timeout: 1000 } : {})}>
-            <Grid item xs={12} md={6}>
-              <Button
+        <Grid item xs={12} lg={3}>
+          <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
+            <EmailIcon className={classes.typeIcon} />{" "}
+            <CustomTypography variant="subtitle1" component="h3">
+              <a
+                className={classes.contactLink}
                 href="mailto:MiragayaIvan@hotmail.com"
-                classes={{ root: classes.button }}
               >
-                Creemos algo increible{" "}
-                <LaunchOutlined style={{ marginLeft: "1rem" }} />
-              </Button>
-            </Grid>
-          </Grow>
+                <strong>MiragayaIvan@hotmail.com</strong>
+              </a>
+            </CustomTypography>
+          </Collapse>
         </Grid>
-      </Grid>
-      <Grid item xs={12} className={classes.footer}>
+        <Grid item xs={12} lg={3}>
+          <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
+            <CallIcon className={classes.typeIcon} />
+            <Typography variant="subtitle1" component="h3">
+              <a className={classes.contactLink} href="tel:+541127677832">
+                <strong>11-2767-7832</strong>{" "}
+              </a>{" "}
+            </Typography>{" "}
+          </Collapse>
+        </Grid>
+        <Grid item xs={12} className={classes.detail2}>
+          {" "}
+          <Grid container>
+            <Slide
+              direction="right"
+              in={checked}
+              {...(checked ? { timeout: 800 } : {})}
+            >
+              <Grid item xs={12}>
+                <CustomTypography
+                  variant="body1"
+                  component="h2"
+                  className={classes.detailText1}
+                >
+                  {" "}
+                  y hagamos algo juntos
+                </CustomTypography>
+              </Grid>
+            </Slide>
+          </Grid>
+        </Grid>{" "}
         <Grow in={checked} {...(checked ? { timeout: 1000 } : {})}>
-          <Grid container justify="center" alignItems="center">
-            <IconButton
-              href="https://www.linkedin.com/in/miragaya-ivan/"
-              className={classes.mediaButton}
+          <Grid item xs={12} md={6}>
+            <Button
+              href="mailto:MiragayaIvan@hotmail.com"
+              classes={{ root: classes.button }}
             >
-              {" "}
-              <LinkedInIcon className={classes.icon} />
-            </IconButton>{" "}
-            <IconButton
-              href="https://github.com/m-ivan"
-              className={classes.mediaButton}
-            >
-              <GitHubIcon className={classes.icon} />
-            </IconButton>
-            <Grid container justify="center">
-              <CustomTypography component="h4" className={classes.watermark}>
-                Iván Miragaya
-                <span className={classes.watermarkColor}>©2021</span>
-              </CustomTypography>
-            </Grid>
+              Creemos algo increible{" "}
+              <LaunchOutlined style={{ marginLeft: "1rem" }} />
+            </Button>
           </Grid>
         </Grow>
+      </Grid>
+      <Grid container className={classes.footer}>
+        <IconButton
+          href="https://www.linkedin.com/in/miragaya-ivan/"
+          className={classes.mediaButton}
+        >
+          {" "}
+          <LinkedInIcon className={classes.icon} />
+        </IconButton>{" "}
+        <IconButton
+          href="https://github.com/m-ivan"
+          className={classes.mediaButton}
+        >
+          <GitHubIcon className={classes.icon} />
+        </IconButton>{" "}
+        <Grid item xs={12}>
+          <Box>
+            <CustomTypography component="h4" className={classes.watermark}>
+              Iván Miragaya
+              <span className={classes.watermarkColor}>©2021</span>
+            </CustomTypography>{" "}
+          </Box>
+        </Grid>
       </Grid>{" "}
     </Grid>
   );

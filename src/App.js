@@ -82,7 +82,7 @@ export default function App() {
     });
   const gotoFolio = () =>
     window.scrollTo({
-      top: folio.current.offsetTop * 0.97,
+      top: folio.current.offsetTop * 0.99,
       behavior: "smooth",
     });
   const gotoContact = () =>

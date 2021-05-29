@@ -80,7 +80,7 @@ export default function Header(props) {
             justify="center"
             alignItems="center"
           >
-            <Slide direction="down" in={checked} {...{ timeout: 800 }}>
+            <Slide direction="down" in={checked} {...{ timeout: 1000 }}>
               <Box>
                 <span className={classes.colorText}>Iván Miragaya.</span>{" "}
               </Box>
@@ -89,7 +89,7 @@ export default function Header(props) {
               <Box>Full-Stack developer. </Box>
             </Slide>
 
-            <Slide direction="up" in={checked} {...{ timeout: 2000 }}>
+            <Slide direction="left" in={checked} {...{ timeout: 2000 }}>
               <Box>
                 <Button
                   onMouseEnter={() => setRotate(true)}

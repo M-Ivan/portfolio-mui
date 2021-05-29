@@ -9,7 +9,7 @@ import Contact from "./components/Contact";
 import Particles from "react-particles-js";
 import useWindowPosition from "./hooks/useWindowPosition";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
-import { useSetState, useWindowScroll } from "react-use";
+import { useWindowScroll } from "react-use";
 import BigNav from "./components/BigNav";
 
 const useStyles = makeStyles((theme) => ({

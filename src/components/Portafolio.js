@@ -1,13 +1,5 @@
-import {
-  Collapse,
-  Fade,
-  Grid,
-  Grow,
-  Hidden,
-  makeStyles,
-  Slide,
-} from "@material-ui/core";
-import React, { useState } from "react";
+import { Grid, Hidden, makeStyles, Slide } from "@material-ui/core";
+import React from "react";
 import DetailsMobile from "./DetailsMobile";
 import Proyect from "./Proyect";
 
@@ -89,12 +81,12 @@ export default function Portafolio(props) {
           className={classes.proyectAreaBox}
         >
           <Grid container className={classes.proyectArea}>
-            <Grid item xs={12} sm={6} lg={4}>
+            <Grid item xs={12} md={6}>
               <Proyect
                 checked={checked}
                 nombre="BullsOn"
                 img="/assets/proyects/bullsOn.png"
-                tecnologias="React / MongoDB / Express"
+                tecnologias="React (M-UI) / MongoDB / Express"
                 descripcion="Bulls On es una red social que aunque 
             sigue en desarrollo, ya posee las principales funcionalidades 
             que una red social debe tener, permite a los usuarios registrarse y logearse, dar like, repostear post de otros usuarios y comentarlos, entre otras cosas."
@@ -103,118 +95,42 @@ export default function Portafolio(props) {
                 appType="Red social"
               />
             </Grid>
-            <Grid item xs={12} sm={6} lg={4}>
+            <Grid item xs={12} md={6}>
               <Proyect
                 checked={checked}
-                nombre="BullsOn"
-                img="/assets/proyects/bullsOn.png"
-                tecnologias="React / MongoDB / Express"
-                descripcion="Bulls On es una red social que aunque 
-            sigue en desarrollo, ya posee las principales funcionalidades 
-            que una red social debe tener, permite a los usuarios registrarse y logearse, dar like, repostear post de otros usuarios y comentarlos, entre otras cosas."
-                githubRepo="https://github.com/M-Ivan/BullsOn"
-                demoUrl="https://bullson.herokuapp.com"
-                appType="Red social"
+                nombre="Buscador de pasajes"
+                img="/assets/proyects/buscadorPasajes.png"
+                tecnologias="React (M-UI) / MongoDB / Express"
+                descripcion="Proyecto que hace request a una API REST y devuelve una lista de pasajes que cumplan con los requisitos solicitados."
+                githubRepo="https://github.com/M-Ivan/Buscador-de-pasajes"
+                demoUrl="https://buscadorpasajes.herokuapp.com/"
+                appType="Consumo de API REST"
               />
             </Grid>
-            <Grid item xs={12} sm={6} lg={4}>
+            <Grid item xs={12} md={6}>
               <Proyect
                 checked={checked}
-                nombre="BullsOn"
-                img="/assets/proyects/bullsOn.png"
+                nombre="AmLibre"
+                img="/assets/proyects/E-commerce.png"
                 tecnologias="React / MongoDB / Express"
-                descripcion="Bulls On es una red social que aunque 
-            sigue en desarrollo, ya posee las principales funcionalidades 
-            que una red social debe tener, permite a los usuarios registrarse y logearse, dar like, repostear post de otros usuarios y comentarlos, entre otras cosas."
-                githubRepo="https://github.com/M-Ivan/BullsOn"
-                demoUrl="https://bullson.herokuapp.com"
-                appType="Red social"
+                descripcion="AmLibre es un E-Commerce completamente funcional y hecho a semejanza de Amazon y Mercado Libre, acepta pagos con PayPal, ofrece seguimiento de ordenes y dashoard del admin y vendedor. Entre otras cosas."
+                githubRepo="https://github.com/M-Ivan/E-Commerce"
+                demoUrl="https://amlibre.herokuapp.com"
+                appType="E-Commerce"
               />{" "}
             </Grid>
-            <Grid item xs={12} sm={6} lg={4}>
+            <Grid item xs={12} md={6}>
               <Proyect
                 checked={checked}
-                nombre="BullsOn"
-                img="/assets/proyects/bullsOn.png"
-                tecnologias="React / MongoDB / Express"
-                descripcion="Bulls On es una red social que aunque 
-            sigue en desarrollo, ya posee las principales funcionalidades 
-            que una red social debe tener, permite a los usuarios registrarse y logearse, dar like, repostear post de otros usuarios y comentarlos, entre otras cosas."
-                githubRepo="https://github.com/M-Ivan/BullsOn"
-                demoUrl="https://bullson.herokuapp.com"
-                appType="Red social"
+                nombre="Reactstaurante"
+                img="/assets/proyects/reactstaurante 2.png"
+                tecnologias="React (ReactStrap) / MongoDB / Express"
+                descripcion="Aplicación con backend incluido que ofrece un menu, configuracion, lista de platos y demás a los usuarios en una sola pagina, ya que se trata de una SPA."
+                githubRepo="https://github.com/M-Ivan/Restaurante"
+                demoUrl="https://reactstaurant.herokuapp.com"
+                appType="Restaurante"
               />
             </Grid>
-            <Grid item xs={12} sm={6} lg={4}>
-              <Proyect
-                checked={checked}
-                nombre="BullsOn"
-                img="/assets/proyects/bullsOn.png"
-                tecnologias="React / MongoDB / Express"
-                descripcion="Bulls On es una red social que aunque 
-            sigue en desarrollo, ya posee las principales funcionalidades 
-            que una red social debe tener, permite a los usuarios registrarse y logearse, dar like, repostear post de otros usuarios y comentarlos, entre otras cosas."
-                githubRepo="https://github.com/M-Ivan/BullsOn"
-                demoUrl="https://bullson.herokuapp.com"
-                appType="Red social"
-              />
-            </Grid>
-            <Grid item xs={12} sm={6} lg={4}>
-              <Proyect
-                checked={checked}
-                nombre="BullsOn"
-                img="/assets/proyects/bullsOn.png"
-                tecnologias="React / MongoDB / Express"
-                descripcion="Bulls On es una red social que aunque 
-            sigue en desarrollo, ya posee las principales funcionalidades 
-            que una red social debe tener, permite a los usuarios registrarse y logearse, dar like, repostear post de otros usuarios y comentarlos, entre otras cosas."
-                githubRepo="https://github.com/M-Ivan/BullsOn"
-                demoUrl="https://bullson.herokuapp.com"
-                appType="Red social"
-              />{" "}
-            </Grid>
-            <Grid item xs={12} sm={6} lg={4}>
-              <Proyect
-                checked={checked}
-                nombre="BullsOn"
-                img="/assets/proyects/bullsOn.png"
-                tecnologias="React / MongoDB / Express"
-                descripcion="Bulls On es una red social que aunque 
-            sigue en desarrollo, ya posee las principales funcionalidades 
-            que una red social debe tener, permite a los usuarios registrarse y logearse, dar like, repostear post de otros usuarios y comentarlos, entre otras cosas."
-                githubRepo="https://github.com/M-Ivan/BullsOn"
-                demoUrl="https://bullson.herokuapp.com"
-                appType="Red social"
-              />{" "}
-            </Grid>{" "}
-            <Grid item xs={12} sm={6} lg={4}>
-              <Proyect
-                checked={checked}
-                nombre="BullsOn"
-                img="/assets/proyects/bullsOn.png"
-                tecnologias="React / MongoDB / Express"
-                descripcion="Bulls On es una red social que aunque 
-            sigue en desarrollo, ya posee las principales funcionalidades 
-            que una red social debe tener, permite a los usuarios registrarse y logearse, dar like, repostear post de otros usuarios y comentarlos, entre otras cosas."
-                githubRepo="https://github.com/M-Ivan/BullsOn"
-                demoUrl="https://bullson.herokuapp.com"
-                appType="Red social"
-              />{" "}
-            </Grid>{" "}
-            <Grid item xs={12} sm={6} lg={4}>
-              <Proyect
-                checked={checked}
-                nombre="BullsOn"
-                img="/assets/proyects/bullsOn.png"
-                tecnologias="React / MongoDB / Express"
-                descripcion="Bulls On es una red social que aunque 
-            sigue en desarrollo, ya posee las principales funcionalidades 
-            que una red social debe tener, permite a los usuarios registrarse y logearse, dar like, repostear post de otros usuarios y comentarlos, entre otras cosas."
-                githubRepo="https://github.com/M-Ivan/BullsOn"
-                demoUrl="https://bullson.herokuapp.com"
-                appType="Red social"
-              />{" "}
-            </Grid>{" "}
           </Grid>{" "}
         </Grid>{" "}
       </Grid>

@@ -1,13 +1,4 @@
-import {
-  Avatar,
-  Box,
-  Collapse,
-  Fade,
-  Grid,
-  Grow,
-  Hidden,
-  Slide,
-} from "@material-ui/core";
+import { Avatar, Box, Grid, Hidden, Slide } from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import BuildIcon from "@material-ui/icons/Build";
@@ -16,7 +7,7 @@ import CodeIcon from "@material-ui/icons/Code";
 import React from "react";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import DoneAllIcon from "@material-ui/icons/DoneAll";
-import NavBar from "./NavBar";
+import Hexagon from "react-hexagon";
 
 const SkillsLinearProgress = withStyles((theme) => ({
   root: {
@@ -75,10 +66,9 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     width: "100%",
     height: "100%",
-    maxWidth: "200px",
-    maxHeight: "200px",
+    maxWidth: "270px",
+    maxHeight: "270px",
     marginTop: "2rem",
-    boxShadow: "0 0 20px #00000080",
   },
   skillArea: {
     marginTop: "3rem",
@@ -261,10 +251,19 @@ export default function AboutMe(props) {
                     alignItems="center"
                     direction="column"
                   >
-                    <Avatar
-                      src="/assets/profile.jpg"
+                    <Hexagon
                       className={classes.avatar}
+                      backgroundImage="/assets/profile3.jpg"
+                      style={{
+                        stroke: "#00000000",
+                      }}
                     />
+                    {
+                      //   <Avatar
+                      //   src="/assets/profile.jpg"
+                      //   className={classes.avatar}
+                      // />
+                    }
                     <Grid item xs={9} className={classes.descriptionText}>
                       <h3>¿Quién soy?</h3>
                       <p>

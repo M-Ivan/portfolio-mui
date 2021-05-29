@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import {
-  Box,
-  Button,
-  Collapse,
-  Fade,
-  Grid,
-  Slide,
-  Typography,
-} from "@material-ui/core";
+import { Box, Button, Grid, Slide, Typography } from "@material-ui/core";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
 const HeaderTypography = withStyles((theme) => ({

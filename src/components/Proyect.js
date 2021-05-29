@@ -9,17 +9,21 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import {
   Box,
-  Collapse,
   Divider,
   Fade,
   Grid,
   Grow,
   Modal,
   Slide,
+  Hidden,
+  IconButton,
 } from "@material-ui/core";
+import { useWindowSize } from "react-use";
 import LaunchIcon from "@material-ui/icons/Launch";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import SubjectIcon from "@material-ui/icons/Subject";
+import { Close } from "@material-ui/icons";
+
 const CustomTypography = withStyles((theme) => ({
   root: {
     height: 25,
@@ -29,7 +33,6 @@ const CustomTypography = withStyles((theme) => ({
 
 const useStyles = makeStyles((theme) => ({
   cardRoot: {
-    zIndex: 10,
     width: "100%",
     height: "100%",
     color: "#fff",
@@ -54,7 +57,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   detailsArea: {
-    marginBottom: "6rem",
+    marginBottom: "4rem",
+    padding: "0 1rem 0 1rem",
   },
   detailsTitle: {
     fontWeight: "bolder",
@@ -80,12 +84,25 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      height: "100vh",
+    },
+  },
+  actionBox: {
+    [theme.breakpoints.down("md")]: {
+      justifyContent: "center",
+      alignItems: "center",
+      textAlign: "center",
+    },
   },
   modalBox: {
     maxWidth: "900px",
+
     [theme.breakpoints.down("md")]: {
       width: "100%",
-      height: "auto",
+      height: "100%",
+      textAlign: "center",
     },
   },
   modalImg: {
@@ -100,6 +117,10 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: "#fff",
       color: "#3f3f3f",
+    },
+    [theme.breakpoints.down("md")]: {
+      width: "50%",
+      marginTop: "2rem",
     },
   },
 }));
@@ -119,6 +140,7 @@ export default function Proyect(props) {
 
   const [showBox, setShowBox] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
+  const { width } = useWindowSize();
 
   return (
     <Grow in={checked}>
@@ -131,15 +153,17 @@ export default function Proyect(props) {
         >
           {!showBox ? (
             <Slide direction="up" in={!showBox} {...{ timeout: 500 }}>
-              <CardMedia
-                // Poner una imagen que respete las dimensiones siempre
-                component="img"
-                alt={nombre}
-                height="300"
-                width="400"
-                image={img}
-                title={nombre}
-              />
+              <CardActionArea onClick={() => setShowBox(true)}>
+                <CardMedia
+                  // Poner una imagen que respete las dimensiones siempre
+                  component="img"
+                  alt={nombre}
+                  height="300"
+                  width="400"
+                  image={img}
+                  title={nombre}
+                />
+              </CardActionArea>
             </Slide>
           ) : (
             <Fade in={showBox} {...{ timeout: 800 }}>
@@ -178,7 +202,11 @@ export default function Proyect(props) {
                 title={nombre}
                 className={classes.modalImg}
               />
-              <CardContent className={classes.detailsArea}>
+              <Grid
+                container
+                direction="column"
+                className={classes.detailsArea}
+              >
                 <CustomTypography
                   gutterBottom
                   variant="h5"
@@ -204,8 +232,8 @@ export default function Proyect(props) {
                 >
                   {descripcion}
                 </CustomTypography>{" "}
-              </CardContent>
-              <CardActions>
+              </Grid>
+              <CardActions className={classes.actionBox}>
                 <Button
                   size="small"
                   href={githubRepo}
@@ -218,9 +246,14 @@ export default function Proyect(props) {
                   size="small"
                   classes={{ root: classes.demoButton }}
                 >
-                  Demo Online <LaunchIcon />
+                  Demo <LaunchIcon />
                 </Button>
               </CardActions>
+              <Hidden mdUp>
+                <IconButton onClick={() => setShowDetails(false)}>
+                  <Close />
+                </IconButton>
+              </Hidden>
             </Card>
           </Fade>
         </Modal>

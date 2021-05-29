@@ -3,10 +3,12 @@ import {
   Fade,
   Grid,
   Grow,
+  Hidden,
   makeStyles,
   Slide,
 } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
+import DetailsMobile from "./DetailsMobile";
 import Proyect from "./Proyect";
 
 const useStyles = makeStyles((theme) => ({
@@ -66,6 +68,9 @@ export default function Portafolio(props) {
       ref={folioSection}
     >
       <Grid container className={classes.portafolio}>
+        <Hidden mdUp>
+          <DetailsMobile />
+        </Hidden>
         <Grid item xs={12}>
           <Slide
             direction="up"
@@ -84,7 +89,6 @@ export default function Portafolio(props) {
           className={classes.proyectAreaBox}
         >
           <Grid container className={classes.proyectArea}>
-            {" "}
             <Grid item xs={12} sm={6} lg={4}>
               <Proyect
                 checked={checked}

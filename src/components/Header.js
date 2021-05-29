@@ -77,7 +77,7 @@ export default function Header(props) {
       >
         <Slide direction="left" in={checked} {...{ timeout: 1000 }}>
           <HeaderTypography variant="p" component="h1">
-            <span className={classes.colorText}>Iván Miragaya</span>.
+            <span className={classes.colorText}>Iván Miragaya.</span>
             <br />
             Full-Stack developer.
           </HeaderTypography>

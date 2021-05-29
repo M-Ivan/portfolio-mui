@@ -66,7 +66,7 @@ export default function App() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (pageYOffset >= 850) {
+    if (pageYOffset >= 930) {
       setVisible(true);
     } else {
       setVisible(false);
@@ -77,7 +77,7 @@ export default function App() {
     window.scrollTo({ top: header.current.offsetTop, behavior: "smooth" });
   const gotoAbout = () =>
     window.scrollTo({
-      top: about.current.offsetTop * 0.95,
+      top: about.current.offsetTop * 0.945,
       behavior: "smooth",
     });
   const gotoFolio = () =>
@@ -92,7 +92,7 @@ export default function App() {
     });
 
   const handleCallback = () => {
-    setOpen(!open);
+    setOpen((prev) => !prev);
   };
 
   console.log("header", header);
@@ -190,6 +190,7 @@ export default function App() {
             gotoFolio={gotoFolio}
             gotoContact={gotoContact}
             handleCallback={handleCallback}
+            open={open}
           />
         ) : null}
         {

@@ -10,17 +10,17 @@ export default function useWindowPosition(id) {
   useLayoutEffect(() => {
     function updatePosition() {
       const offsetHeight = window.document.getElementById(id).offsetHeight;
-      console.log("offsetHeight", offsetHeight);
+      // console.log("offsetHeight", offsetHeight);
       if (window.pageYOffset < 600) {
         setHeaderAnimation(true);
       }
       if (window.pageYOffset > 600) {
         setAboutAnimation(true);
       }
-      if (window.pageYOffset > 1350) {
+      if (window.pageYOffset > 1750) {
         setPortfolioAnimation(true);
       }
-      if (window.pageYOffset > 2500) {
+      if (window.pageYOffset > 2800) {
         setContactAnimation(true);
         setHeaderAnimation(false);
       }

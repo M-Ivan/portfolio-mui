@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
   },
   skill: {
     padding: 0,
-    borderRadius: "20%",
+    borderRadius: "50%",
     width: "100px",
     height: "100px",
     backgroundColor: " #ff9100",
@@ -83,6 +83,7 @@ const useStyles = makeStyles((theme) => ({
   },
   skillText: {
     textAlign: "center",
+    fontSize: "1.1rem",
   },
   skillIcon: {
     color: "#fff",
@@ -168,7 +169,7 @@ export default function AboutMe(props) {
                         <CodeIcon className={classes.skillIcon} />
                       </Grid>
                     </Grid>
-                    <h2>Clean Coder</h2>
+                    <h2>Clean Coding</h2>
                     <p className={classes.skillText}>
                       Fiel a las revisiones de código. <br />
                       Es escencial dejar todo lo mas facil de entender posible.
@@ -191,8 +192,7 @@ export default function AboutMe(props) {
                     <h2 style={{ textAlign: "center" }}>Mentalidad Win/Win</h2>
                     <p className={classes.skillText}>
                       Profundicemos lo que sabemos.
-                      <br />
-                      Si algo cuesta, se aprenderá.
+                      <br />Y si algo cuesta, se aprende.
                     </p>
                   </Grid>
                 </Slide>
@@ -211,7 +211,7 @@ export default function AboutMe(props) {
                         />
                       </Grid>
                     </Grid>
-                    <h2>Intuitivo</h2>
+                    <h2>Intuición</h2>
                     <p className={classes.skillText}>
                       La UX como brújula: <br />
                       cuanto mas facil de usar, mejor.
@@ -231,7 +231,7 @@ export default function AboutMe(props) {
                         <BuildIcon className={classes.skillIcon} />
                       </Grid>
                     </Grid>
-                    <h2>Dedicado</h2>
+                    <h2>Dedicación</h2>
                     <p className={classes.skillText}>
                       En constante aprendizaje, mi filosofía es: <br />
                       "siempre se puede hacer mejor".
@@ -266,10 +266,11 @@ export default function AboutMe(props) {
                     }
                     <Grid item xs={9} className={classes.descriptionText}>
                       <h3>¿Quién soy?</h3>
-                      <p>
-                        Tengo 21 años, soy un desarrollador web con preferencia
-                        en el Front-end. Empecé a programar hace 8 meses
-                        aproximadamente, y actualmente manejo el stack MERN.
+                      <p className={classes.skillText}>
+                        Tengo 21 años, y soy un desarrollador web con
+                        preferencia en el Front-end. Tengo gran pasión por el
+                        diseño de interfaces dinámicas y expresivas, además de
+                        un gran compromiso con el desarrollo web en general.
                       </p>
                     </Grid>
                   </Grid>

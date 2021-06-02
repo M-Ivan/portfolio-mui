@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { CssBaseline, Grid, IconButton, Zoom } from "@material-ui/core";
 import Header from "./components/Header";
@@ -7,7 +7,6 @@ import AboutMe from "./components/AboutMe";
 import Portafolio from "./components/Portafolio";
 import Contact from "./components/Contact";
 import Particles from "react-particles-js";
-import useWindowPosition from "./hooks/useWindowPosition";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import { useWindowScroll } from "react-use";
 import BigNav from "./components/BigNav";
@@ -54,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function App() {
   const classes = useStyles();
-  const checked = useWindowPosition("root");
 
   const header = useRef(null);
   const about = useRef(null);
@@ -65,8 +63,48 @@ export default function App() {
   const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
 
+  const [headerAnimation, setHeaderAnimation] = useState(false);
+  const [aboutAnimation, setAboutAnimation] = useState(false);
+  const [portfolioAnimation, setPortfolioAnimation] = useState(false);
+  const [contactAnimation, setContactAnimation] = useState(false);
+
+  useLayoutEffect(() => {
+    function updatePosition() {
+      if (header.current && about.current && folio.current && contact.current) {
+        if (window.pageYOffset === 0) {
+          setAboutAnimation(false);
+          setPortfolioAnimation(false);
+          setContactAnimation(false);
+        }
+        if (about && window.pageYOffset < about.current.offsetTop) {
+          setHeaderAnimation(true);
+        }
+        if (
+          window.pageYOffset < folio.current.offsetTop &&
+          window.pageYOffset >= about.current.offsetTop * 0.9
+        ) {
+          setAboutAnimation(true);
+        }
+        if (
+          window.pageYOffset < contact.current.offsetTop &&
+          window.pageYOffset >= folio.current.offsetTop * 0.9
+        ) {
+          setPortfolioAnimation(true);
+          setHeaderAnimation(false);
+        }
+        if (contact && window.pageYOffset > contact.current.offsetTop * 0.9) {
+          setContactAnimation(true);
+          setAboutAnimation(false);
+          setPortfolioAnimation(false);
+        }
+      }
+    }
+    window.addEventListener("scroll", updatePosition);
+    updatePosition();
+  }, [about, header, folio, contact]);
+
   useEffect(() => {
-    if (pageYOffset >= 930) {
+    if (pageYOffset >= about.current.offsetTop) {
       setVisible(true);
     } else {
       setVisible(false);
@@ -77,7 +115,7 @@ export default function App() {
     window.scrollTo({ top: header.current.offsetTop, behavior: "smooth" });
   const gotoAbout = () =>
     window.scrollTo({
-      top: about.current.offsetTop * 0.945,
+      top: about.current.offsetTop * 0.95,
       behavior: "smooth",
     });
   const gotoFolio = () =>
@@ -182,6 +220,10 @@ export default function App() {
           gotoFolio={gotoFolio}
           gotoContact={gotoContact}
           handleCallback={handleCallback}
+          header={header}
+          about={about}
+          folio={folio}
+          contact={contact}
         />
         {open ? (
           <BigNav
@@ -197,16 +239,13 @@ export default function App() {
           // TODO: BOTON DE SCROLL DOWN && SCROLL UP
         }
         <Header
-          checked={checked.headerAnimation}
+          animation={headerAnimation}
           headerSection={header}
           gotoAbout={gotoAbout}
         />
-        <AboutMe checked={checked.aboutAnimation} aboutSection={about} />
-        <Portafolio
-          folioSection={folio}
-          checked={checked.portfolioAnimation}
-        />{" "}
-        <Contact checked={checked.contactAnimation} contactSection={contact} />{" "}
+        <AboutMe animation={aboutAnimation} aboutSection={about} />
+        <Portafolio folioSection={folio} animation={portfolioAnimation} />{" "}
+        <Contact animation={contactAnimation} contactSection={contact} />{" "}
         {visible ? (
           <Zoom in {...{ timeout: 1000 }}>
             <IconButton

@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Portafolio(props) {
-  const { checked, folioSection } = props;
+  const { animation, folioSection } = props;
   const classes = useStyles();
 
   return (
@@ -65,9 +65,9 @@ export default function Portafolio(props) {
         </Hidden>
         <Grid item xs={12}>
           <Slide
-            direction="up"
-            in={checked}
-            {...(checked ? { timeout: 1000 } : {})}
+            direction="left"
+            in={animation}
+            {...(animation ? { timeout: 1000 } : {})}
           >
             <Grid container justify="center" alignItems="center">
               <h1 className={classes.title}>Proyectos</h1>
@@ -83,7 +83,7 @@ export default function Portafolio(props) {
           <Grid container className={classes.proyectArea}>
             <Grid item xs={12} md={6}>
               <Proyect
-                checked={checked}
+                animation={animation}
                 nombre="BullsOn"
                 img="/assets/proyects/bullsOn.png"
                 tecnologias="React (M-UI) / MongoDB / Express"
@@ -97,7 +97,7 @@ export default function Portafolio(props) {
             </Grid>
             <Grid item xs={12} md={6}>
               <Proyect
-                checked={checked}
+                animation={animation}
                 nombre="Buscador de pasajes"
                 img="/assets/proyects/buscadorPasajes.png"
                 tecnologias="React (M-UI) / MongoDB / Express"
@@ -109,7 +109,7 @@ export default function Portafolio(props) {
             </Grid>
             <Grid item xs={12} md={6}>
               <Proyect
-                checked={checked}
+                animation={animation}
                 nombre="AmLibre"
                 img="/assets/proyects/E-commerce.png"
                 tecnologias="React / MongoDB / Express"
@@ -121,7 +121,7 @@ export default function Portafolio(props) {
             </Grid>
             <Grid item xs={12} md={6}>
               <Proyect
-                checked={checked}
+                animation={animation}
                 nombre="Reactstaurante"
                 img="/assets/proyects/reactstaurante 2.png"
                 tecnologias="React (ReactStrap) / MongoDB / Express"

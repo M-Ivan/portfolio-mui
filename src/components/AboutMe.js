@@ -1,4 +1,4 @@
-import { Avatar, Box, Grid, Hidden, Slide } from "@material-ui/core";
+import { Box, Grid, Hidden, Slide } from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import BuildIcon from "@material-ui/icons/Build";
@@ -6,7 +6,6 @@ import EmojiObjectsOutlinedIcon from "@material-ui/icons/EmojiObjectsOutlined";
 import CodeIcon from "@material-ui/icons/Code";
 import React from "react";
 import LinearProgress from "@material-ui/core/LinearProgress";
-import DoneAllIcon from "@material-ui/icons/DoneAll";
 import Hexagon from "react-hexagon";
 
 const SkillsLinearProgress = withStyles((theme) => ({
@@ -78,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "50%",
     width: "100px",
     height: "100px",
-    backgroundColor: " #ff9100",
+    backgroundColor: "#ff9100",
     display: "flex",
   },
   skillText: {
@@ -118,7 +117,7 @@ function ProgressBar(props) {
 }
 
 export default function AboutMe(props) {
-  const { checked, aboutSection } = props;
+  const { animation, aboutSection } = props;
   const classes = useStyles();
 
   return (
@@ -132,27 +131,11 @@ export default function AboutMe(props) {
         <Grid item xs={12}>
           <Slide
             direction="left"
-            in={checked}
-            {...(checked ? { timeout: 1000 } : {})}
+            in={animation}
+            {...(animation ? { timeout: 1000 } : {})}
           >
             <Grid container justify="center" alignItems="center">
               <h1 className={classes.title}>Sobre mí</h1>
-            </Grid>
-          </Slide>
-          <Slide
-            direction="right"
-            in={checked}
-            {...(checked ? { timeout: 1000 } : {})}
-          >
-            <Grid item xs={12}>
-              <h2 style={{ textAlign: "center" }}>
-                Mi{" "}
-                <span className={classes.subtitleColor}>
-                  fórmula
-                  <DoneAllIcon />
-                </span>{" "}
-                para el éxito
-              </h2>
             </Grid>
           </Slide>
           <Grid item xs={12}>
@@ -160,8 +143,8 @@ export default function AboutMe(props) {
               <Grid item xs={6} lg={3}>
                 <Slide
                   direction="right"
-                  in={checked}
-                  {...(checked ? { timeout: 1000 } : {})}
+                  in={animation}
+                  {...(animation ? { timeout: 1000 } : {})}
                 >
                   <Grid container alignItems="center" direction="column">
                     <Grid className={classes.skill}>
@@ -169,7 +152,7 @@ export default function AboutMe(props) {
                         <CodeIcon className={classes.skillIcon} />
                       </Grid>
                     </Grid>
-                    <h2>Clean Coding</h2>
+                    <h2>Clean Coder</h2>
                     <p className={classes.skillText}>
                       Fiel a las revisiones de código. <br />
                       Es escencial dejar todo lo mas facil de entender posible.
@@ -180,8 +163,8 @@ export default function AboutMe(props) {
               <Grid item xs={6} lg={3}>
                 <Slide
                   direction="right"
-                  in={checked}
-                  {...(checked ? { timeout: 1000 } : {})}
+                  in={animation}
+                  {...(animation ? { timeout: 1000 } : {})}
                 >
                   <Grid container alignItems="center" direction="column">
                     <Grid className={classes.skill}>
@@ -191,8 +174,8 @@ export default function AboutMe(props) {
                     </Grid>
                     <h2 style={{ textAlign: "center" }}>Mentalidad Win/Win</h2>
                     <p className={classes.skillText}>
-                      Profundicemos lo que sabemos.
-                      <br />Y si algo cuesta, se aprende.
+                      Se profundiza lo que se sabe.
+                      <br />Y lo que no, se aprende.
                     </p>
                   </Grid>
                 </Slide>
@@ -200,8 +183,8 @@ export default function AboutMe(props) {
               <Grid item xs={6} lg={3}>
                 <Slide
                   direction="right"
-                  in={checked}
-                  {...(checked ? { timeout: 1000 } : {})}
+                  in={animation}
+                  {...(animation ? { timeout: 1000 } : {})}
                 >
                   <Grid container alignItems="center" direction="column">
                     <Grid className={classes.skill}>
@@ -222,8 +205,8 @@ export default function AboutMe(props) {
               <Grid item xs={6} lg={3}>
                 <Slide
                   direction="right"
-                  in={checked}
-                  {...(checked ? { timeout: 1000 } : {})}
+                  in={animation}
+                  {...(animation ? { timeout: 1000 } : {})}
                 >
                   <Grid container alignItems="center" direction="column">
                     <Grid className={classes.skill}>
@@ -231,7 +214,7 @@ export default function AboutMe(props) {
                         <BuildIcon className={classes.skillIcon} />
                       </Grid>
                     </Grid>
-                    <h2>Dedicación</h2>
+                    <h2>Dedicado</h2>
                     <p className={classes.skillText}>
                       En constante aprendizaje, mi filosofía es: <br />
                       "siempre se puede hacer mejor".
@@ -242,8 +225,8 @@ export default function AboutMe(props) {
               <Grid item xs={12} lg={6}>
                 <Slide
                   direction="right"
-                  in={checked}
-                  {...(checked ? { timeout: 1000 } : {})}
+                  in={animation}
+                  {...(animation ? { timeout: 1000 } : {})}
                 >
                   <Grid
                     container
@@ -267,10 +250,11 @@ export default function AboutMe(props) {
                     <Grid item xs={9} className={classes.descriptionText}>
                       <h3>¿Quién soy?</h3>
                       <p className={classes.skillText}>
-                        Tengo 21 años, y soy un desarrollador web con
-                        preferencia en el Front-end. Tengo gran pasión por el
-                        diseño de interfaces dinámicas y expresivas, además de
-                        un gran compromiso con el desarrollo web en general.
+                        Soy un web developer de 21 años con gran pasión por la
+                        creación de aplicaciones funcionales y dinámicas. Busco
+                        siempre superarme por lo que doy lo mejor de mí en cada
+                        situación, porque las cosas "siempre se pueden hacer
+                        mejor".
                       </p>
                     </Grid>
                   </Grid>
@@ -278,8 +262,8 @@ export default function AboutMe(props) {
               </Grid>
               <Slide
                 direction="left"
-                in={checked}
-                {...(checked ? { timeout: 1000 } : {})}
+                in={animation}
+                {...(animation ? { timeout: 1000 } : {})}
               >
                 <Grid item xs={12} lg={6}>
                   <Grid container alignItems="center">

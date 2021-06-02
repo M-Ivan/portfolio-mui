@@ -31,16 +31,15 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "100vh",
   },
   contact: {
-    height: "60vh",
+    height: "85%",
     backgroundColor: "#1a1a1a",
     display: "flex",
     textAlign: "center",
     justifyContent: "center",
-    padding: "0 2rem",
   },
   title: {
     fontWeight: "600",
-    zIndex: 1,
+    zIndex: 10,
     padding: "1rem",
     textAlign: "center",
     textTransform: "uppercase",
@@ -55,42 +54,26 @@ const useStyles = makeStyles((theme) => ({
       backgroundSize: "80% 3px",
     },
   },
-  subtitle: {
-    color: "#00d4db",
-    fontWeight: 600,
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "12pt",
-    },
-  },
 
   button: {
-    width: "50%",
-    border: "2px solid #03c2c9",
+    width: "90%",
+    border: "2px solid #d31ec0",
     borderRadius: "0%",
     color: "#fff",
     padding: "1rem",
     fontSize: "1rem",
-    transition: "0.6s",
+    marginTop: "3rem",
     "&:hover": {
-      backgroundColor: "#03c2c9",
-      color: "#1b1b1b",
-      fontWeight: 600,
-    },
-    [theme.breakpoints.down("sm")]: {
-      width: "100%",
-      fontSize: "10pt",
+      backgroundColor: "#d31ec0",
+      color: "#fff",
     },
   },
   contactLink: {
     textDecoration: "none",
     color: "#fff",
     fontSize: "1.5rem",
-    transition: "0.6s",
     "&:hover": {
       color: "#ff9100",
-    },
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "10pt",
     },
   },
 
@@ -118,7 +101,6 @@ const useStyles = makeStyles((theme) => ({
     textShadow: "0 0 8px #000",
   },
   detail3: {
-    position: "absolute",
     backgroundColor: "#3f3f3f", //"#3f3f3f",
     height: "40px",
     transform: "skewY(5deg)",
@@ -127,7 +109,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   detail4: {
-    position: "absolute",
     backgroundColor: "#3f3f3f", //"#3f3f3f",
     height: "40px",
     transform: "skewY(-5deg)",
@@ -143,31 +124,22 @@ const useStyles = makeStyles((theme) => ({
     color: "#808080",
   },
   footer: {
-    height: "15vh",
+    height: "15%",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#19171d",
   },
   mediaButton: {
-    width: "55px",
-    height: "55px",
-    backgroundColor: "#272727",
+    width: "60px",
+    height: "60px",
     color: "#fff",
-    margin: "0 1vw 0 1vw ",
-    borderRadius: "0%",
     "&:hover": {
-      color: "#fff",
-      backgroundColor: "#03c2c9",
-    },
-    [theme.breakpoints.down("sm")]: {
-      width: "40px",
-      height: "40px",
+      color: "#d300c1",
     },
   },
   icon: {
-    width: "30px",
-    height: "30px",
-    transition: "1s",
+    width: "40px",
+    height: "40px",
   },
   watermark: {
     display: "flex",
@@ -176,104 +148,49 @@ const useStyles = makeStyles((theme) => ({
     color: "#acacac",
     fontSize: "1.2rem",
     textTransform: "uppercase",
-    [theme.breakpoints.down("sm")]: { fontSize: "8pt" },
   },
   watermarkColor: {
     color: "#d300c1",
-  },
-  card: {
-    borderRadius: "0%",
-    height: "12vh",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "50%",
-    backgroundColor: "#1e242c",
-    color: "#fff",
-
-    [theme.breakpoints.down("sm")]: { width: "100%" },
-  },
-  available: {
-    fontSize: "15pt",
-    textTransform: "uppercase",
-    letterSpacing: "2px",
-    [theme.breakpoints.down("sm")]: { fontSize: "10pt" },
-  },
-  cardText: {
-    [theme.breakpoints.down("sm")]: { fontSize: "11pt" },
   },
 }));
 export default function Contact(props) {
   const { animation, contactSection } = props;
   const classes = useStyles();
 
-  const opciones = [
-    // 0
-    "Disponible",
-    // 1
-    "Solo freelance / Part-Time",
-    // 2
-    "No disponible",
-  ];
-
-  const disponibilidad = opciones[0];
-
   return (
-    <Grid
-      container
-      alignItems="flex-end"
-      className={classes.root}
-      ref={contactSection}
-    >
-      <Grow in={animation} {...(animation ? { timeout: 1000 } : {})}>
-        <Grid container justify="center" alignItems="center">
-          <h1 className={classes.title}>Contacto</h1>
-        </Grid>
-      </Grow>
+    <Grid container className={classes.root} ref={contactSection}>
       <Grid container className={classes.contact}>
+        <Grid item xs={6} className={classes.detail3}></Grid>
+        <Grid item xs={6} className={classes.detail4}></Grid>
         <Grow in={animation} {...(animation ? { timeout: 1000 } : {})}>
-          <Grid container elevation={0} className={classes.card}>
-            <Grid item xs={12}>
-              <CustomTypography variant="h6" className={classes.cardText}>
-                {" "}
-                En este momento me encuentro:
-              </CustomTypography>
-            </Grid>
-            <Grid item xs={12}>
-              <CustomTypography variant="subtitle1">
-                <strong
-                  className={classes.available}
-                  style={
-                    disponibilidad === opciones[0]
-                      ? { color: "#00b62e" }
-                      : disponibilidad === opciones[1]
-                      ? { color: "#ffbb00" }
-                      : { color: "#ff0000" }
-                  }
-                >
-                  {disponibilidad}
-                </strong>{" "}
-              </CustomTypography>{" "}
-            </Grid>
+          <Grid item xs={12}>
+            <Grid container justify="center" alignItems="center">
+              <h1 className={classes.title}>Contacto</h1>
+            </Grid>{" "}
           </Grid>
         </Grow>
-        <Slide
-          direction="left"
-          in={animation}
-          {...(animation ? { timeout: 1000 } : {})}
-        >
-          <Grid item xs={12}>
-            <CustomTypography variant="h4" className={classes.subtitle}>
-              Tenés una consulta o querés que trabajemos juntos?
-            </CustomTypography>
+        <Grid item xs={12} className={classes.detail1}>
+          {" "}
+          <Grid container>
+            <Slide
+              direction="left"
+              in={animation}
+              {...(animation ? { timeout: 800 } : {})}
+            >
+              <Grid item xs={12} className={classes.detailText}>
+                <CustomTypography variant="h2" component="h2">
+                  {" "}
+                  <strong> Contactame!</strong>
+                </CustomTypography>
+              </Grid>
+            </Slide>
           </Grid>
-        </Slide>
-
+        </Grid>
         <Grid item xs={12} lg={3}>
           <Collapse in={animation} {...(animation ? { timeout: 1000 } : {})}>
             <EmailIcon className={classes.typeIcon} />{" "}
-            <CustomTypography variant="subtitle1" component="h2">
+            <CustomTypography variant="subtitle1" component="h3">
               <a
-                id="mail"
                 className={classes.contactLink}
                 href="mailto:MiragayaIvan@hotmail.com"
               >
@@ -292,21 +209,38 @@ export default function Contact(props) {
             </Typography>{" "}
           </Collapse>
         </Grid>
-        <Slide
-          direction="right"
-          in={animation}
-          {...(animation ? { timeout: 1000 } : {})}
-        >
-          <Grid item xs={12}>
+        <Grid item xs={12} className={classes.detail2}>
+          {" "}
+          <Grid container>
+            <Slide
+              direction="right"
+              in={animation}
+              {...(animation ? { timeout: 800 } : {})}
+            >
+              <Grid item xs={12}>
+                <CustomTypography
+                  variant="body1"
+                  component="h2"
+                  className={classes.detailText1}
+                >
+                  {" "}
+                  y hagamos algo juntos
+                </CustomTypography>
+              </Grid>
+            </Slide>
+          </Grid>
+        </Grid>{" "}
+        <Grow in={animation} {...(animation ? { timeout: 1000 } : {})}>
+          <Grid item xs={12} md={6}>
             <Button
               href="mailto:MiragayaIvan@hotmail.com"
               classes={{ root: classes.button }}
             >
               Creemos algo increible{" "}
-              <LaunchOutlined style={{ marginLeft: "1vw" }} />
+              <LaunchOutlined style={{ marginLeft: "1rem" }} />
             </Button>
           </Grid>
-        </Slide>
+        </Grow>
       </Grid>
       <Grid container className={classes.footer}>
         <IconButton
@@ -330,7 +264,7 @@ export default function Contact(props) {
             </CustomTypography>{" "}
           </Box>
         </Grid>
-      </Grid>
+      </Grid>{" "}
     </Grid>
   );
 }

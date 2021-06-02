@@ -56,6 +56,10 @@ const useStyles = makeStyles((theme) => ({
       color: "#d300c1",
     },
   },
+  active: {
+    color: "#ff9100",
+  },
+
   icon: {
     marginRight: "5px",
     color: "#8600d3",
@@ -68,15 +72,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function NavBar(props) {
-  const { gotoHeader, gotoAbout, gotoFolio, gotoContact, handleCallback } =
-    props;
+  const {
+    gotoHeader,
+    gotoAbout,
+    gotoFolio,
+    gotoContact,
+    handleCallback,
+    about,
+  } = props;
 
   const classes = useStyles();
 
   const [navbar, setNavbar] = useState(false);
 
   const changeBackground = () => {
-    if (window.scrollY >= 950) {
+    if (window.scrollY >= about.current.offsetTop * 0.95) {
       setNavbar(true);
     } else {
       setNavbar(false);
@@ -111,7 +121,7 @@ export default function NavBar(props) {
                 >
                   {
                     // <HomeOutlinedIcon className={classes.icon} />
-                  }{" "}
+                  }
                   Inicio
                 </Button>{" "}
                 <Button

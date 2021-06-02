@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import {
-  Box,
-  Button,
-  Collapse,
-  Grid,
-  Slide,
-  Typography,
-} from "@material-ui/core";
+import { Box, Button, Grid, Slide, Typography } from "@material-ui/core";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
 const HeaderTypography = withStyles((theme) => ({
@@ -61,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Header(props) {
-  const { checked, headerSection, gotoAbout } = props;
+  const { animation, headerSection, gotoAbout } = props;
   const classes = useStyles();
   const [rotate, setRotate] = useState(false);
 
@@ -80,16 +73,16 @@ export default function Header(props) {
             justify="center"
             alignItems="center"
           >
-            <Slide direction="down" in={checked} {...{ timeout: 1000 }}>
+            <Slide direction="down" in={animation} {...{ timeout: 1000 }}>
               <Box>
                 <span className={classes.colorText}>Iván Miragaya.</span>{" "}
               </Box>
             </Slide>
-            <Slide direction="right" in={checked} {...{ timeout: 1600 }}>
+            <Slide direction="right" in={animation} {...{ timeout: 1600 }}>
               <Box>Full-Stack developer. </Box>
             </Slide>
 
-            <Slide direction="left" in={checked} {...{ timeout: 2000 }}>
+            <Slide direction="left" in={animation} {...{ timeout: 2000 }}>
               <Box>
                 <Button
                   onMouseEnter={() => setRotate(true)}

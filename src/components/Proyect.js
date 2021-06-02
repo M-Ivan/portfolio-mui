@@ -30,7 +30,7 @@ const CustomTypography = withStyles((theme) => ({
 }))(Typography);
 
 const useStyles = makeStyles((theme) => ({
-  cardRoot: {
+  root: {
     width: "100%",
     height: "100%",
     color: "#fff",
@@ -44,29 +44,22 @@ const useStyles = makeStyles((theme) => ({
   nombre: {
     fontSize: "2rem",
     fontWeight: "bolder",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "15pt",
+    },
   },
   tecnologias: {
     fontSize: "1.2rem",
     color: "#ff0080",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "10pt",
+    },
   },
   detailsBox: {
     height: 300,
     display: "flex",
     alignItems: "center",
   },
-  detailsArea: {
-    marginBottom: "4rem",
-    padding: "0 1rem 0 1rem",
-  },
-  detailsTitle: {
-    fontWeight: "bolder",
-  },
-  detailsSubtitle: {
-    fontWeight: "bolder",
-    textTransform: "uppercase",
-    color: "#9e9e9e",
-  },
-  detailsDescription: {},
   button: {
     width: "60%",
     marginTop: "3rem",
@@ -77,37 +70,50 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: "#ff0080",
     },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "0pt",
+    },
   },
   modal: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    borderRadius: "1rem",
+    position: "absolute",
+    width: "90%",
+    height: "90%",
+    backgroundColor: "#fff",
+    boxShadow: theme.shadows[24],
+    top: "5%",
+    left: "5%",
+    transform: "translate(-50, -50%)",
     [theme.breakpoints.down("md")]: {
-      width: "100%",
-      height: "100vh",
-    },
-  },
-  actionBox: {
-    [theme.breakpoints.down("md")]: {
-      justifyContent: "center",
-      alignItems: "center",
-      textAlign: "center",
-    },
-  },
-  modalBox: {
-    maxWidth: "900px",
-
-    [theme.breakpoints.down("md")]: {
+      overflow: "scroll",
       width: "100%",
       height: "100%",
-      textAlign: "center",
+      top: "0%",
+      left: "0%",
     },
   },
-  modalImg: {
-    maxHeight: "600px",
+  close: {
+    position: "absolute",
+    top: "5px",
+    right: "1%",
+    width: "50px",
+    height: "50px",
+    zIndex: 100,
   },
-  demoButton: {
+  img: {
+    height: "100%",
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems: "flex-start",
+    padding: "1rem",
+    transition: "1s",
+    [theme.breakpoints.down("sm")]: {
+      alignItems: "flex-end",
+    },
+  },
+  modalBtn: {
     backgroundColor: "#ff9100",
+    bottom: "0px",
     borderRadius: "0%",
     color: "#fff",
     fontWeight: "bold",
@@ -116,9 +122,12 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#fff",
       color: "#3f3f3f",
     },
-    [theme.breakpoints.down("md")]: {
-      width: "50%",
-      marginTop: "2rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "0",
+      padding: "0.4rem 1rem 0.4rem 1rem ",
+    },
+    "&:not(:last-child)": {
+      marginRight: "10px",
     },
   },
 }));
@@ -132,21 +141,86 @@ export default function Proyect(props) {
     appType,
     githubRepo,
     demoUrl,
-    checked,
+    animation,
   } = props;
   const classes = useStyles();
 
   const [showBox, setShowBox] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
 
+  // TODO: Copiar el modal del otro proyecto
+
+  const body = (
+    <Grow in={showDetails} {...{ timeout: 400 }}>
+      <Grid container justify="center" className={classes.modal}>
+        <IconButton
+          className={classes.close}
+          onClick={() => setShowDetails(!showDetails)}
+        >
+          <Close className={classes.icon} />
+        </IconButton>
+        <Grid item xs={12} md={7}>
+          <CardMedia
+            component="div"
+            alt="Project 2"
+            image={img}
+            title="Project 2"
+            className={classes.img}
+          >
+            {" "}
+            <Button href={demoUrl} className={classes.modalBtn}>
+              Demo
+              <LaunchIcon />
+            </Button>
+            <Button href={githubRepo} className={classes.modalBtn}>
+              Repo
+              <GitHubIcon />
+            </Button>{" "}
+          </CardMedia>
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          md={5}
+          style={{
+            padding: "2rem",
+          }}
+        >
+          <CustomTypography
+            variant="h4"
+            gutterBottom
+            className={classes.nombre}
+          >
+            {nombre}
+          </CustomTypography>
+          <CustomTypography
+            variant="subtitle1"
+            color="textSecondary"
+            gutterBottom
+            style={{
+              fontWeight: 600,
+              textTransform: "uppercase",
+              alignSelf: "flex-start",
+            }}
+          >
+            {appType}
+          </CustomTypography>
+          <Divider />
+
+          <CustomTypography variant="body1">{descripcion}</CustomTypography>
+        </Grid>
+      </Grid>
+    </Grow>
+  );
+
   return (
-    <Grow in={checked}>
+    <Grow in={animation}>
       <Grid container>
         <Card
           elevation={0}
           onMouseEnter={() => setShowBox(true)}
           onMouseLeave={() => setShowBox(false)}
-          className={classes.cardRoot}
+          className={classes.root}
         >
           {!showBox ? (
             <Slide direction="up" in={!showBox} {...{ timeout: 500 }}>
@@ -183,76 +257,8 @@ export default function Proyect(props) {
             </Fade>
           )}
         </Card>
-        <Modal
-          className={classes.modal}
-          open={showDetails}
-          onClose={() => setShowDetails(false)}
-        >
-          <Fade in={showDetails}>
-            <Card className={classes.modalBox}>
-              <CardMedia
-                component="img"
-                alt={nombre}
-                height="auto"
-                width="auto"
-                image={img}
-                title={nombre}
-                className={classes.modalImg}
-              />
-              <Grid
-                container
-                direction="column"
-                className={classes.detailsArea}
-              >
-                <CustomTypography
-                  gutterBottom
-                  variant="h5"
-                  component="h2"
-                  className={classes.detailsTitle}
-                >
-                  {nombre}
-                </CustomTypography>{" "}
-                <CustomTypography
-                  gutterBottom
-                  variant="subtitle1"
-                  component="h3"
-                  className={classes.detailsSubtitle}
-                >
-                  {appType}.
-                  <Divider />
-                </CustomTypography>
-                <CustomTypography
-                  variant="body1"
-                  color="textPrimary"
-                  component="p"
-                  className={classes.detailsDescription}
-                >
-                  {descripcion}
-                </CustomTypography>{" "}
-              </Grid>
-              <CardActions className={classes.actionBox}>
-                <Button
-                  size="small"
-                  href={githubRepo}
-                  classes={{ root: classes.demoButton }}
-                >
-                  GitHub <GitHubIcon />
-                </Button>
-                <Button
-                  href={demoUrl}
-                  size="small"
-                  classes={{ root: classes.demoButton }}
-                >
-                  Demo <LaunchIcon />
-                </Button>
-              </CardActions>
-              <Hidden mdUp>
-                <IconButton onClick={() => setShowDetails(false)}>
-                  <Close />
-                </IconButton>
-              </Hidden>
-            </Card>
-          </Fade>
+        <Modal open={showDetails} onClose={() => setShowDetails(false)}>
+          {body}
         </Modal>
       </Grid>
     </Grow>

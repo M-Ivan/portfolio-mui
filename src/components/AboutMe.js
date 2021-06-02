@@ -1,4 +1,4 @@
-import { Box, Grid, Hidden, Slide } from "@material-ui/core";
+import { Box, Button, Grid, Hidden, Slide } from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import BuildIcon from "@material-ui/icons/Build";
@@ -7,6 +7,7 @@ import CodeIcon from "@material-ui/icons/Code";
 import React from "react";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Hexagon from "react-hexagon";
+import GetAppIcon from "@material-ui/icons/GetApp";
 
 const SkillsLinearProgress = withStyles((theme) => ({
   root: {
@@ -99,6 +100,18 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#d300c1",
     justifyContent: "center",
     alignItems: "center",
+  },
+  button: {
+    border: "2px solid #d300c1",
+    transition: "0.6s",
+    borderRadius: "0%",
+    fontWeight: 600,
+    color: "#3c3c3c", //"#ff9100",
+    width: "100%",
+    "&:hover": {
+      backgroundColor: "#d300c1",
+      color: "#fff",
+    },
   },
 }));
 
@@ -247,7 +260,12 @@ export default function AboutMe(props) {
                       //   className={classes.avatar}
                       // />
                     }
-                    <Grid item xs={9} className={classes.descriptionText}>
+                    <Grid
+                      item
+                      xs={12}
+                      lg={9}
+                      className={classes.descriptionText}
+                    >
                       <h3>¿Quién soy?</h3>
                       <p className={classes.skillText}>
                         Soy un web developer de 21 años con gran pasión por la
@@ -255,7 +273,15 @@ export default function AboutMe(props) {
                         siempre superarme por lo que doy lo mejor de mí en cada
                         situación, porque las cosas "siempre se pueden hacer
                         mejor".
-                      </p>
+                      </p>{" "}
+                      <Button
+                        href="/cv/CV2.pdf"
+                        className={classes.button}
+                        download
+                      >
+                        <GetAppIcon />
+                        <Hidden smDown>Descargar</Hidden> CV
+                      </Button>
                     </Grid>
                   </Grid>
                 </Slide>

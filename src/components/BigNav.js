@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
+  Box,
   Button,
   ClickAwayListener,
   Divider,
@@ -14,6 +15,8 @@ import AccountBoxOutlinedIcon from "@material-ui/icons/AccountBoxOutlined";
 import WorkOutlineOutlinedIcon from "@material-ui/icons/WorkOutlineOutlined";
 import ContactMailOutlinedIcon from "@material-ui/icons/ContactMailOutlined";
 import ArrowBackOutlinedIcon from "@material-ui/icons/ArrowBackOutlined";
+import { CustomTypography } from "../App";
+
 const useStyles = makeStyles((theme) => ({
   bigNav: {
     backgroundColor: "#19171df9",
@@ -25,18 +28,30 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 100,
   },
   banner: {
+    textAlign: "center",
     fontSize: "3rem",
     fontWeight: 600,
     textTransform: "uppercase",
-    color: "#d300c1",
+    color: "#00d4db",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "2rem",
+    },
   },
   icon: {
     width: "2rem",
     height: "2rem",
+    [theme.breakpoints.down("sm")]: {
+      width: "1.5rem",
+      height: "1.5rem",
+    },
   },
   closeIcon: {
     width: "3rem",
     height: "3rem",
+    [theme.breakpoints.down("sm")]: {
+      width: "2rem",
+      height: "2rem",
+    },
     animation: `$back 0.5s alternate ${theme.transitions.easing.easeInOut} infinite`,
   },
   "@keyframes back": {
@@ -49,10 +64,14 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     textAlign: "center",
+    padding: "1rem 0",
     color: "#fff",
     width: "100%",
     height: "10%",
     fontSize: "2rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1rem",
+    },
   },
 }));
 
@@ -88,64 +107,46 @@ export default function BigNav(props) {
 
   return (
     <Slide direction="right" in={open}>
-      <Grid
-        container
-        direction="column"
-        justify="center"
-        className={classes.bigNav}
-      >
+      <Grid container className={classes.bigNav}>
         <ClickAwayListener onClickAway={handleCallback}>
-          <Grid container alignItems="center" justify="center">
-            <div>
-              <h1 className={classes.banner}>Iván Miragaya</h1>
-            </div>
-            <Divider />
-            <Button
-              classes={{ root: classes.button }}
-              onClick={handleGoToHeader}
-            >
+          <Grid container direction="column" justify="center">
+            <CustomTypography className={classes.banner}>
+              Iván Miragaya
+            </CustomTypography>
+            <Button className={classes.button} onClick={handleGoToHeader}>
               <HomeOutlined
                 style={{ color: orange[700] }}
                 className={classes.icon}
               />
               Inicio
-            </Button>{" "}
-            <Button
-              classes={{ root: classes.button }}
-              onClick={handleGoToAbout}
-            >
+            </Button>
+            <Button className={classes.button} onClick={handleGoToAbout}>
               <AccountBoxOutlinedIcon
                 className={classes.icon}
                 style={{ color: orange[700] }}
               />
               Sobre mí
             </Button>{" "}
-            <Button
-              classes={{ root: classes.button }}
-              onClick={handleGoToFolio}
-            >
+            <Button className={classes.button} onClick={handleGoToFolio}>
               <WorkOutlineOutlinedIcon
                 className={classes.icon}
                 style={{ color: orange[700] }}
               />
               Portafolio
             </Button>{" "}
-            <Button
-              classes={{ root: classes.button }}
-              onClick={handleGoToContact}
-            >
+            <Button className={classes.button} onClick={handleGoToContact}>
               <ContactMailOutlinedIcon
                 className={classes.icon}
                 style={{ color: orange[700] }}
               />
               Contacto
-            </Button>
-            <IconButton onClick={handleCallback} style={{ marginTop: "1rem" }}>
+            </Button>{" "}
+            <Button onClick={handleCallback} className={classes.button}>
               <ArrowBackOutlinedIcon
                 className={classes.closeIcon}
                 style={{ color: orange[700] }}
               />
-            </IconButton>
+            </Button>
           </Grid>
         </ClickAwayListener>
       </Grid>

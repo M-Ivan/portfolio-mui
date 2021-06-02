@@ -16,13 +16,7 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import EmailIcon from "@material-ui/icons/Email";
 import CallIcon from "@material-ui/icons/Call";
 import { LaunchOutlined } from "@material-ui/icons";
-
-const CustomTypography = withStyles((theme) => ({
-  root: {
-    height: 25,
-    fontFamily: "Raleway",
-  },
-}))(Typography);
+import { CustomTypography } from "../App";
 
 const useStyles = makeStyles((theme) => ({
   root: {

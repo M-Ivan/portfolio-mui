@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#19171d",
     height: "60px",
     zIndex: 10,
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("sm")]: {
       alignItems: "flex-start",
     },
   },
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#19171d",
     height: "60px",
     zIndex: 10,
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("sm")]: {
       alignItems: "flex-start",
     },
   },

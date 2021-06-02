@@ -1,6 +1,13 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { CssBaseline, Grid, IconButton, Zoom } from "@material-ui/core";
+import {
+  CssBaseline,
+  Grid,
+  IconButton,
+  Typography,
+  withStyles,
+  Zoom,
+} from "@material-ui/core";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import AboutMe from "./components/AboutMe";
@@ -10,6 +17,13 @@ import Particles from "react-particles-js";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import { useWindowScroll } from "react-use";
 import BigNav from "./components/BigNav";
+
+export const CustomTypography = withStyles((theme) => ({
+  root: {
+    height: 25,
+    fontFamily: "Raleway",
+  },
+}))(Typography);
 
 const useStyles = makeStyles((theme) => ({
   root: {

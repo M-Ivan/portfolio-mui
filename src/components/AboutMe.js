@@ -152,7 +152,7 @@ export default function AboutMe(props) {
             </Grid>
           </Slide>
           <Grid item xs={12}>
-            <Grid container justify="center" className={classes.skillArea}>
+            <Grid container className={classes.skillArea}>
               <Grid item xs={6} lg={3}>
                 <Slide
                   direction="right"
@@ -291,7 +291,7 @@ export default function AboutMe(props) {
                 in={animation}
                 {...(animation ? { timeout: 1000 } : {})}
               >
-                <Grid item xs={12} lg={6}>
+                <Grid item xs={12} lg={6} style={{ alignSelf: "center" }}>
                   <Grid container alignItems="center">
                     <Grid item xs={2} className={classes.progressBox}>
                       HTML

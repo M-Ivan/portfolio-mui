@@ -3,7 +3,6 @@ import {
   Grid,
   makeStyles,
   IconButton,
-  withStyles,
   Typography,
   Grow,
   Slide,
@@ -20,7 +19,7 @@ import { CustomTypography } from "../App";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: "none",
+    backgroundColor: "#1b1b1b",
     color: "#fff",
     minHeight: "100vh",
   },

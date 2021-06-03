@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: "3px solid #d300c1",
     backgroundColor: "#19171d",
     height: "60px",
-    zIndex: 10,
+    zIndex: 1,
     [theme.breakpoints.down("sm")]: {
       alignItems: "flex-start",
     },
@@ -93,8 +93,6 @@ export default function NavBar(props) {
     }
   };
 
-  console.log("window.scrollY", window.scrollY);
-  console.log("navbar", navbar);
   window.addEventListener("scroll", changeBackground);
 
   return (

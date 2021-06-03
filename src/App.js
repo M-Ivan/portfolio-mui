@@ -13,7 +13,6 @@ import NavBar from "./components/NavBar";
 import AboutMe from "./components/AboutMe";
 import Portafolio from "./components/Portafolio";
 import Contact from "./components/Contact";
-import Particles from "react-particles-js";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import { useWindowScroll } from "react-use";
 import BigNav from "./components/BigNav";
@@ -28,14 +27,18 @@ export const CustomTypography = withStyles((theme) => ({
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: "100vh",
-    backgroundImage: `url(${process.env.PUBLIC_URL + "/assets/bg59.gif"})`,
-    backgroundRepeat: "no-repeat",
-    backgroundColor: "#1b1b1b",
-    backgroundSize: "100% 100vh",
-    backgroundAttachment: "relative",
+    padding: "0rem",
+    margin: 0,
+
+    //  backgroundImage: `url(${process.env.PUBLIC_URL + "/assets/bg59.gif"})`,
+    //  backgroundRepeat: "no-repeat",
+    //  backgroundColor: "#1b1b1b",
+    //  backgroundSize: "100% 100vh",
+    //  backgroundAttachment: "relative",
+
     display: "flex",
     fontFamily: "Raleway",
-    overflowX: "hidden",
+    overflow: "hidden",
   },
   scrollTop: {
     boxShadow: "0 0 10px #00000030",
@@ -147,86 +150,11 @@ export default function App() {
     setOpen((prev) => !prev);
   };
 
-  console.log("header", header);
-  console.log("about", about);
-  console.log("folio", folio);
-  console.log("contact", contact);
-
   return (
     <div className={classes.root}>
-      <Particles
-        params={{
-          particles: {
-            number: {
-              value: 300,
-            },
-            color: {
-              value: "#cd2ad9", // "#0f7dd8",  //#ff9100
-            },
-            shape: {
-              stroke: {
-                width: 0,
-              },
-              type: "edge",
-              image: {
-                src: "/assets/react.png",
-                width: 40,
-                height: 30,
-              },
-            },
-            opacity: {
-              value: 1,
-            },
-            size: {
-              value: 5,
-              random: true,
-            },
-            line_linked: {
-              enable: false,
-              distance: 200,
-              color: "#4b00fa", //#d31ec0
-              opacity: 0.5,
-              width: 1,
-            },
-            move: {
-              enable: true,
-              direction: "bottom",
-              outMode: "out",
-              random: true,
-              speed: 3,
-            },
-          },
-          interactivity: {
-            events: {
-              onHover: {
-                enable: true,
-                mode: "grab",
-              },
-              onClick: {
-                enable: true,
-                mode: "repulse",
-              },
-            },
-            modes: {
-              grab: {
-                lineLinked: {
-                  opacity: 0.3,
-                },
-                distance: 400,
-              },
-              repulse: {
-                distance: 200,
-              },
-            },
-          },
-        }}
-        height="100vh"
-        style={{
-          position: "absolute",
-          borderRadious: "50%",
-          zIndex: 0,
-        }}
-      />{" "}
+      {
+        //  <ParticlesX />
+      }{" "}
       <Grid container id="root">
         <NavBar
           gotoHeader={gotoHeader}
@@ -238,6 +166,7 @@ export default function App() {
           about={about}
           folio={folio}
           contact={contact}
+          open={open}
         />
         {open ? (
           <BigNav

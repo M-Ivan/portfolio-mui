@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
@@ -14,7 +13,6 @@ import {
   Grow,
   Modal,
   Slide,
-  Hidden,
   IconButton,
 } from "@material-ui/core";
 import LaunchIcon from "@material-ui/icons/Launch";

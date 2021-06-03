@@ -77,28 +77,25 @@ export default function Header(props) {
             </Box>
           </Slide>{" "}
         </Grid>
-        {
-          // <Slide direction="left" in={animation} {...{ timeout: 2000 }}>
-          //   <Box>
-        }
-        <Button
-          onMouseEnter={() => setRotate(true)}
-          onMouseLeave={() => setRotate(false)}
-          size="large"
-          href="#about"
-          variant="outlined"
-          onClick={gotoAbout}
-          classes={{ root: classes.button }}
-        >
-          Mis trabajos
-          <ArrowForwardIcon
-            className={rotate ? classes.iconAnim : classes.icon}
-          />
-        </Button>{" "}
-        {
-          // </Box>
-          // </Slide>
-        }
+
+        <Slide direction="right" in={animation} {...{ timeout: 2000 }}>
+          <Box>
+            <Button
+              onMouseEnter={() => setRotate(true)}
+              onMouseLeave={() => setRotate(false)}
+              size="large"
+              href="#about"
+              variant="outlined"
+              onClick={gotoAbout}
+              classes={{ root: classes.button }}
+            >
+              Mis trabajos
+              <ArrowForwardIcon
+                className={rotate ? classes.iconAnim : classes.icon}
+              />
+            </Button>{" "}
+          </Box>
+        </Slide>
       </Grid>
     </Grid>
   );

@@ -28,6 +28,7 @@ a:hover {
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
   line-height: 0.8em;
   outline: none;
+  animation-delay: 2s;
   animation: animate1 3s linear infinite;
 }
 
@@ -43,6 +44,7 @@ a:hover {
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
   line-height: 0.8em;
   outline: none;
+  animation-delay: 2s;
   animation: animate2 5s linear infinite;
 }
 

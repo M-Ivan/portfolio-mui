@@ -62,7 +62,7 @@ export default function Header(props) {
         <Grid item xs={12}>
           <Slide direction="left" in={animation} {...{ timeout: 2000 }}>
             <Box>
-              <h1 className="header">Iván Miragaya</h1>
+              <h1 className="header accerleration">Iván Miragaya</h1>
             </Box>
           </Slide>
         </Grid>
@@ -73,13 +73,19 @@ export default function Header(props) {
         >
           <Slide direction="right" in={animation} {...{ timeout: 2000 }}>
             <Box>
-              <h2 className="sub-header">Web Developer</h2>
+              <h2 className="sub-header accerleration">Web Developer</h2>
             </Box>
           </Slide>{" "}
         </Grid>
 
         <Slide direction="right" in={animation} {...{ timeout: 2000 }}>
-          <Box>
+          <Box
+            style={{
+              width: "100%",
+              justifyContent: "center",
+              display: "flex",
+            }}
+          >
             <Button
               onMouseEnter={() => setRotate(true)}
               onMouseLeave={() => setRotate(false)}

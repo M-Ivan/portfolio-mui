@@ -28,8 +28,9 @@ a:hover {
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
   line-height: 0.8em;
   outline: none;
-  animation-delay: 2s;
   animation: animate1 3s linear infinite;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .sub-header {
@@ -44,18 +45,29 @@ a:hover {
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
   line-height: 0.8em;
   outline: none;
-  animation-delay: 2s;
-  animation: animate2 5s linear infinite;
+  animation: animate2 5s infinite;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.accerleration {
+  transform: translateZ(0);
 }
 
 @media only screen and (max-width: 600px) {
   .header {
     font-size: 3em;
     letter-spacing: 3px;
+    color: #d300c1;
+    text-shadow: 0 0 10px #d300c1, 0 0 20px #d300c1, 0 0 40px #d300c1;
+    animation: none;
   }
   .sub-header {
     font-size: 2em;
     letter-spacing: 3px;
+    animation: none;
+    color: #03c2c9;
+    text-shadow: 0 0 10px #03c2c9, 0 0 20px #03c2c9, 0 0 40px #03c2c9;
   }
 }
 

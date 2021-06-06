@@ -14,11 +14,12 @@ import {
   Modal,
   Slide,
   IconButton,
+  Icon,
 } from "@material-ui/core";
 import LaunchIcon from "@material-ui/icons/Launch";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import SubjectIcon from "@material-ui/icons/Subject";
-import { Close } from "@material-ui/icons";
+import { ArrowBackIos, ArrowForwardIos, Close } from "@material-ui/icons";
 
 const CustomTypography = withStyles((theme) => ({
   root: {
@@ -72,6 +73,13 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "0pt",
     },
   },
+
+  boxLeft: {
+    position: "relative",
+    height: "50%",
+    width: "20%",
+    right: "0%",
+  },
   modal: {
     borderRadius: "1rem",
     position: "absolute",
@@ -101,8 +109,6 @@ const useStyles = makeStyles((theme) => ({
   img: {
     height: "100%",
     display: "flex",
-    justifyContent: "flex-end",
-    alignItems: "flex-start",
     padding: "1rem",
     transition: "1s",
     [theme.breakpoints.down("sm")]: {
@@ -111,6 +117,8 @@ const useStyles = makeStyles((theme) => ({
   },
   modalBtn: {
     backgroundColor: "#ff9100",
+    position: "relative",
+    justifySelf: "center",
     bottom: "0px",
     borderRadius: "0%",
     color: "#fff",
@@ -126,6 +134,68 @@ const useStyles = makeStyles((theme) => ({
     },
     "&:not(:last-child)": {
       marginRight: "10px",
+    },
+  },
+  back: {
+    boxShadow: theme.shadows[10],
+    [theme.breakpoints.down("md")]: {
+      color: "#d300c1",
+      top: "0%",
+      height: "100%",
+
+      marginLeft: "0rem",
+      boxShadow: "0 0",
+      backgroundColor: "transparent",
+      "&:hover": {
+        backgroundColor: "transparent",
+      },
+    },
+    marginLeft: "1rem",
+    position: "relative",
+    backgroundColor: "#fff",
+    transition: "0.6s",
+    width: "50px",
+    height: "50px",
+    top: "50%",
+    left: "0%",
+    color: "#d300c1",
+    zIndex: 10,
+    [theme.breakpoints.up("lg")]: {
+      "&:hover": {
+        backgroundColor: "#d300c1",
+        color: "#fff",
+      },
+    },
+  },
+  forward: {
+    boxShadow: theme.shadows[10],
+    [theme.breakpoints.down("md")]: {
+      color: "#d300c1",
+      top: "0%",
+      height: "100%",
+      marginRight: "0rem",
+      boxShadow: "0 0",
+      backgroundColor: "transparent",
+      "&:hover": {
+        backgroundColor: "transparent",
+      },
+    },
+    marginRight: "1rem",
+    position: "relative",
+    backgroundColor: "#fff",
+    transition: "0.6s",
+    width: "50px",
+    height: "50px",
+    right: "0%",
+    color: "#d300c1",
+    zIndex: 10,
+    top: "50%",
+    [theme.breakpoints.up("lg")]: {
+      position: "relative",
+      "&:hover": {
+        backgroundColor: "#d300c1",
+        color: "#fff",
+      },
     },
   },
 }));
@@ -145,8 +215,24 @@ export default function Proyect(props) {
 
   const [showBox, setShowBox] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
-
+  const [current, setCurrent] = useState(0);
+  const { images } = img;
   // TODO: Copiar el modal del otro proyecto
+
+  const handleForward = () => {
+    setCurrent(current + 1);
+    if (current >= images.length - 1) {
+      setCurrent(0);
+    }
+  };
+  const handleBack = () => {
+    setCurrent(current - 1);
+    if (current <= 0) {
+      setCurrent(images.length - 1);
+    }
+  };
+
+  console.log("current", current);
 
   const body = (
     <Grow in={showDetails} {...{ timeout: 400 }}>
@@ -157,29 +243,38 @@ export default function Proyect(props) {
         >
           <Close className={classes.icon} />
         </IconButton>
-        <Grid item xs={12} md={7}>
+        <Grid item xs={12} md={9}>
           <CardMedia
             component="div"
             alt="Project 2"
-            image={img}
+            image={images[current]}
             title="Project 2"
             className={classes.img}
           >
-            {" "}
-            <Button href={demoUrl} className={classes.modalBtn}>
-              Demo
-              <LaunchIcon />
-            </Button>
-            <Button href={githubRepo} className={classes.modalBtn}>
-              Repo
-              <GitHubIcon />
-            </Button>{" "}
+            <Grid container justify="space-between" style={{ height: "100%" }}>
+              <IconButton onClick={handleBack} className={classes.back}>
+                <ArrowBackIos />
+              </IconButton>
+              <IconButton onClick={handleForward} className={classes.forward}>
+                <ArrowForwardIos />
+              </IconButton>{" "}
+              <Grid container alignItems="flex-end" justify="flex-end">
+                <Button href={demoUrl} className={classes.modalBtn}>
+                  Demo
+                  <LaunchIcon />
+                </Button>
+                <Button href={githubRepo} className={classes.modalBtn}>
+                  Repo
+                  <GitHubIcon />
+                </Button>{" "}
+              </Grid>
+            </Grid>
           </CardMedia>
         </Grid>
         <Grid
           item
           xs={12}
-          md={5}
+          md={3}
           style={{
             padding: "2rem",
           }}
@@ -229,7 +324,7 @@ export default function Proyect(props) {
                   alt={nombre}
                   height="300"
                   width="400"
-                  image={img}
+                  image={images ? images[0] : null}
                   title={nombre}
                 />
               </CardActionArea>

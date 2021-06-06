@@ -215,3 +215,101 @@ a:hover {
   transition: 0.5s;
   background-color: #b33300;
 }
+
+.hexagon {
+  position: relative;
+  width: 200px;
+  height: 115.47px;
+  margin: 57.74px 0;
+  background-image: url(profile/profile.jpg);
+  background-size: auto 230.9401px;
+  background-position: center;
+  box-shadow: 0 0 10px rgba(54, 54, 54, 0.781);
+}
+
+.hexTop,
+.hexBottom {
+  position: absolute;
+  z-index: 1;
+  width: 141.42px;
+  height: 141.42px;
+  overflow: hidden;
+  -webkit-transform: scaleY(0.5774) rotate(-45deg);
+  -ms-transform: scaleY(0.5774) rotate(-45deg);
+  transform: scaleY(0.5774) rotate(-45deg);
+  background: inherit;
+  left: 29.29px;
+  box-shadow: 0 0 10px rgba(54, 54, 54, 0.781);
+}
+
+/*counter transform the bg image on the caps*/
+.hexTop:after,
+.hexBottom:after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 115.47005383792516px;
+  -webkit-transform: rotate(45deg) scaleY(1.7321) translateY(-57.735px);
+  -ms-transform: rotate(45deg) scaleY(1.7321) translateY(-57.735px);
+  transform: rotate(45deg) scaleY(1.7321) translateY(-57.735px);
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  background: inherit;
+}
+
+.hexTop {
+  top: -70.7107px;
+}
+
+.hexTop:after {
+  background-position: center top;
+}
+
+.hexBottom {
+  bottom: -70.7107px;
+}
+
+.hexBottom:after {
+  background-position: center bottom;
+}
+
+.hexagon:after {
+  content: "";
+  position: absolute;
+
+  top: 0px;
+  left: 0;
+  width: 200px;
+  height: 115.4701px;
+  z-index: 2;
+  background: inherit;
+}
+
+.hexagon-skill {
+  position: relative;
+  width: 100px;
+  height: 57.74px;
+  background-color: #ff9100;
+  margin: 28.87px 0;
+}
+
+.hexagon-skill:before,
+.hexagon-skill:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+}
+
+.hexagon-skill:before {
+  bottom: 100%;
+  border-bottom: 28.87px solid #ff9100;
+}
+
+.hexagon-skill:after {
+  top: 100%;
+  width: 0;
+  border-top: 28.87px solid #ff9100;
+}

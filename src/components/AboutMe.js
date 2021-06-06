@@ -6,7 +6,6 @@ import EmojiObjectsOutlinedIcon from "@material-ui/icons/EmojiObjectsOutlined";
 import CodeIcon from "@material-ui/icons/Code";
 import React from "react";
 import LinearProgress from "@material-ui/core/LinearProgress";
-import Hexagon from "react-hexagon";
 import GetAppIcon from "@material-ui/icons/GetApp";
 
 const SkillsLinearProgress = withStyles((theme) => ({
@@ -73,19 +72,20 @@ const useStyles = makeStyles((theme) => ({
   skillArea: {
     marginTop: "3rem",
   },
-  skill: {
-    padding: 0,
-    borderRadius: "50%",
-    width: "100px",
-    height: "100px",
-    backgroundColor: "#ff9100",
-    display: "flex",
-  },
+  // skill: {
+  //   padding: 0,
+  //   borderRadius: "50%",
+  //   width: "100px",
+  //   height: "100px",
+  //   backgroundColor: "#ff9100",
+  //   display: "flex",
+  // },
   skillText: {
     textAlign: "center",
     fontSize: "1.1rem",
   },
   skillIcon: {
+    paddingTop: "2.5px",
     color: "#fff",
     width: "50%",
     height: "50%",
@@ -160,7 +160,7 @@ export default function AboutMe(props) {
                   {...(animation ? { timeout: 1000 } : {})}
                 >
                   <Grid container alignItems="center" direction="column">
-                    <Grid className={classes.skill}>
+                    <Grid className="hexagon-skill">
                       <Grid container justify="center" alignItems="center">
                         <CodeIcon className={classes.skillIcon} />
                       </Grid>
@@ -180,7 +180,7 @@ export default function AboutMe(props) {
                   {...(animation ? { timeout: 1000 } : {})}
                 >
                   <Grid container alignItems="center" direction="column">
-                    <Grid className={classes.skill}>
+                    <Grid className="hexagon-skill">
                       <Grid container justify="center" alignItems="center">
                         <VerifiedUserIcon className={classes.skillIcon} />
                       </Grid>
@@ -200,7 +200,7 @@ export default function AboutMe(props) {
                   {...(animation ? { timeout: 1000 } : {})}
                 >
                   <Grid container alignItems="center" direction="column">
-                    <Grid className={classes.skill}>
+                    <Grid className="hexagon-skill">
                       <Grid container justify="center" alignItems="center">
                         <EmojiObjectsOutlinedIcon
                           className={classes.skillIcon}
@@ -209,7 +209,7 @@ export default function AboutMe(props) {
                     </Grid>
                     <h2>Intuición</h2>
                     <p className={classes.skillText}>
-                      La UX como brújula: <br />
+                      Partidario de la filosofía UX: <br />
                       cuanto mas facil de usar, mejor.
                     </p>
                   </Grid>
@@ -222,15 +222,15 @@ export default function AboutMe(props) {
                   {...(animation ? { timeout: 1000 } : {})}
                 >
                   <Grid container alignItems="center" direction="column">
-                    <Grid className={classes.skill}>
+                    <Grid className="hexagon-skill">
                       <Grid container justify="center" alignItems="center">
                         <BuildIcon className={classes.skillIcon} />
                       </Grid>
                     </Grid>
-                    <h2>Dedicado</h2>
+                    <h2>Dedicación</h2>
                     <p className={classes.skillText}>
-                      En constante aprendizaje, mi filosofía es: <br />
-                      "siempre se puede hacer mejor".
+                      En constante aprendizaje para mejorarme a mi mismo cada
+                      dia.
                     </p>
                   </Grid>
                 </Slide>
@@ -247,13 +247,10 @@ export default function AboutMe(props) {
                     alignItems="center"
                     direction="column"
                   >
-                    <Hexagon
-                      className={classes.avatar}
-                      backgroundImage="/assets/profile3.jpg"
-                      style={{
-                        stroke: "#00000000",
-                      }}
-                    />
+                    <div className={`hexagon`}>
+                      <div class="hexTop"></div>
+                      <div class="hexBottom"></div>
+                    </div>
                     {
                       //   <Avatar
                       //   src="/assets/profile.jpg"
@@ -269,10 +266,9 @@ export default function AboutMe(props) {
                       <h3>¿Quién soy?</h3>
                       <p className={classes.skillText}>
                         Soy un web developer de 21 años con gran pasión por la
-                        creación de aplicaciones funcionales y dinámicas. Busco
-                        siempre superarme por lo que doy lo mejor de mí en cada
-                        situación, porque las cosas "siempre se pueden hacer
-                        mejor".
+                        creación de aplicaciones funcionales y dinámicas. Me
+                        gustan los desafios por lo que busco siempre superarme
+                        dando lo mejor de mí en cada situación.
                       </p>{" "}
                       <Button
                         href="/cv/CV2.pdf"

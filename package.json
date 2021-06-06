@@ -14,6 +14,7 @@
     "react-hexgrid": "^1.0.3",
     "react-particles-js": "^3.4.1",
     "react-scripts": "4.0.3",
+    "react-svg-hexagon": "^1.0.0",
     "react-use": "^17.2.4",
     "web-vitals": "^1.1.2"
   },

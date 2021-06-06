@@ -2,6 +2,7 @@ import { Grid, Hidden, makeStyles, Slide } from "@material-ui/core";
 import React from "react";
 import DetailsMobile from "./DetailsMobile";
 import Proyect from "./Proyect";
+import { projectsimg } from "../projectsimg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,6 +52,10 @@ const useStyles = makeStyles((theme) => ({
 export default function Portafolio(props) {
   const { animation, folioSection } = props;
   const classes = useStyles();
+  const bullsOnImg = projectsimg[0].bullsOn;
+  const buscadorImg = projectsimg[0].buscador;
+  const ecommerceImg = projectsimg[0].amLibre;
+  const restauranteImg = projectsimg[0].restaurante;
 
   return (
     <Grid
@@ -85,7 +90,7 @@ export default function Portafolio(props) {
               <Proyect
                 animation={animation}
                 nombre="BullsOn"
-                img="/assets/proyects/bullsOn.png"
+                img={bullsOnImg}
                 tecnologias="React (M-UI) / MongoDB / Express"
                 descripcion="Bulls On es una red social que aunque 
             sigue en desarrollo, ya posee las principales funcionalidades 
@@ -99,7 +104,7 @@ export default function Portafolio(props) {
               <Proyect
                 animation={animation}
                 nombre="Buscador de pasajes"
-                img="/assets/proyects/buscadorPasajes.png"
+                img={buscadorImg}
                 tecnologias="React (M-UI) / MongoDB / Express"
                 descripcion="Proyecto que hace request a una API REST y devuelve una lista de pasajes que cumplan con los requisitos solicitados."
                 githubRepo="https://github.com/M-Ivan/Buscador-de-pasajes"
@@ -111,7 +116,7 @@ export default function Portafolio(props) {
               <Proyect
                 animation={animation}
                 nombre="AmLibre"
-                img="/assets/proyects/E-commerce.png"
+                img={ecommerceImg}
                 tecnologias="React / MongoDB / Express"
                 descripcion="AmLibre es un E-Commerce completamente funcional y hecho a semejanza de Amazon y Mercado Libre, acepta pagos con PayPal, ofrece seguimiento de ordenes y dashoard del admin y vendedor. Entre otras cosas."
                 githubRepo="https://github.com/M-Ivan/E-Commerce"
@@ -123,7 +128,7 @@ export default function Portafolio(props) {
               <Proyect
                 animation={animation}
                 nombre="Reactstaurante"
-                img="/assets/proyects/reactstaurante 2.png"
+                img={restauranteImg}
                 tecnologias="React (ReactStrap) / MongoDB / Express"
                 descripcion="Aplicación con backend incluido que ofrece un menu, configuracion, lista de platos y demás a los usuarios en una sola pagina, ya que se trata de una SPA."
                 githubRepo="https://github.com/M-Ivan/Restaurante"

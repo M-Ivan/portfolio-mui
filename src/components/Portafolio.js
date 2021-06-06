@@ -92,7 +92,7 @@ export default function Portafolio(props) {
                 nombre="BullsOn"
                 img={bullsOnImg}
                 tecnologias="React (M-UI) / MongoDB / Express"
-                descripcion="Bulls On es una red social que aunque 
+                descripcion="Bulls On es una red social fully responsive que aunque 
             sigue en desarrollo, ya posee las principales funcionalidades 
             que una red social debe tener, permite a los usuarios registrarse y logearse, dar like, repostear post de otros usuarios y comentarlos, entre otras cosas."
                 githubRepo="https://github.com/M-Ivan/BullsOn"

@@ -84,10 +84,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "1rem",
     position: "absolute",
     width: "90%",
-    height: "90%",
+    height: "67%",
     backgroundColor: "#fff",
     boxShadow: theme.shadows[24],
-    top: "5%",
+    top: "13%",
     left: "5%",
     transform: "translate(-50, -50%)",
     [theme.breakpoints.down("md")]: {
@@ -105,6 +105,13 @@ const useStyles = makeStyles((theme) => ({
     width: "50px",
     height: "50px",
     zIndex: 100,
+    [theme.breakpoints.down("sm")]: {
+      color: "#000",
+      backgroundColor: "#ffffff40",
+      "&:hover": {
+        backgroundColor: "#ffffff80",
+      },
+    },
   },
   img: {
     height: "100%",
@@ -137,12 +144,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   back: {
-    boxShadow: theme.shadows[10],
+    boxShadow: theme.shadows[7],
     [theme.breakpoints.down("md")]: {
       color: "#d300c1",
       top: "0%",
       height: "100%",
-
+      borderRadius: "0%",
       marginLeft: "0rem",
       boxShadow: "0 0",
       backgroundColor: "transparent",
@@ -168,10 +175,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   forward: {
-    boxShadow: theme.shadows[10],
+    boxShadow: theme.shadows[7],
     [theme.breakpoints.down("md")]: {
       color: "#d300c1",
       top: "0%",
+      borderRadius: "0%",
       height: "100%",
       marginRight: "0rem",
       boxShadow: "0 0",
@@ -241,7 +249,7 @@ export default function Proyect(props) {
           className={classes.close}
           onClick={() => setShowDetails(!showDetails)}
         >
-          <Close className={classes.icon} />
+          <Close />
         </IconButton>
         <Grid item xs={12} md={9}>
           <CardMedia
@@ -251,13 +259,24 @@ export default function Proyect(props) {
             title="Project 2"
             className={classes.img}
           >
-            <Grid container justify="space-between" style={{ height: "100%" }}>
-              <IconButton onClick={handleBack} className={classes.back}>
-                <ArrowBackIos />
-              </IconButton>
-              <IconButton onClick={handleForward} className={classes.forward}>
-                <ArrowForwardIos />
-              </IconButton>{" "}
+            <Grid container style={{ height: "100%" }}>
+              {images.length > 1 && (
+                <Grid
+                  container
+                  justify="space-between"
+                  style={{ height: "90%" }}
+                >
+                  <IconButton onClick={handleBack} className={classes.back}>
+                    <ArrowBackIos />
+                  </IconButton>
+                  <IconButton
+                    onClick={handleForward}
+                    className={classes.forward}
+                  >
+                    <ArrowForwardIos />
+                  </IconButton>
+                </Grid>
+              )}
               <Grid container alignItems="flex-end" justify="flex-end">
                 <Button href={demoUrl} className={classes.modalBtn}>
                   Demo
@@ -266,7 +285,7 @@ export default function Proyect(props) {
                 <Button href={githubRepo} className={classes.modalBtn}>
                   Repo
                   <GitHubIcon />
-                </Button>{" "}
+                </Button>
               </Grid>
             </Grid>
           </CardMedia>

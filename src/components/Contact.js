@@ -201,14 +201,14 @@ export default function Contact(props) {
 
   const opciones = [
     // 0
-    "Disponible",
+    "Disponible Full-Time",
     // 1
-    "Solo freelance / Part-Time",
+    "Solo Part-Time",
     // 2
     "No disponible",
   ];
 
-  const disponibilidad = opciones[0];
+  const disponibilidad = opciones[1];
 
   return (
     <Grid
